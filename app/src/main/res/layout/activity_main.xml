@@ -49,7 +49,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Button"
+        android:text="Enviar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
@@ -57,4 +57,24 @@
         android:layout_below="@+id/txtPassword"
         android:layout_alignParentStart="true"
         android:layout_marginTop="42dp" />
+
+    <Button
+        android:text="Registrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:id="@+id/btnRegistrarse"
+        android:layout_below="@+id/btnEnviar"
+        android:layout_toEndOf="@+id/btnEnviar"
+        android:minHeight="34dp"
+        android:minWidth="68dip"
+        style="@android:style/Widget.Button.Small" />
+
+    <Button
+        android:text="Limpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnRegistrarse"
+        android:layout_toEndOf="@+id/btnRegistrarse"
+        android:id="@+id/btnlimpiar" />
 </RelativeLayout>
