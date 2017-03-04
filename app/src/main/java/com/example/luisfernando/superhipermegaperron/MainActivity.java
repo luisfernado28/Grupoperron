@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btnRegistarse=(Button)findViewById(R.id.btnRegistrarse);
 
         btnRegistarse.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 Intent a=new Intent(context,RegistraseActivity.class);
                 startActivity(a);

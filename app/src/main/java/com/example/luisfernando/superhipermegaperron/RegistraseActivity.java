@@ -5,4 +5,5 @@ package com.example.luisfernando.superhipermegaperron;
  */
 
 public class RegistraseActivity {
+
 }
