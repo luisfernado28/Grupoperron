@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btnRegistarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a=new Intent(context,RegistraseActivity.class);
+                Intent a=new Intent(context,Registrarse.class);
                 startActivity(a);
             }
         });
