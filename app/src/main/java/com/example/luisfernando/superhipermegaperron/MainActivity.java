@@ -40,5 +40,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnEnviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String campo_usuario = txtUsuario.getText().toString();
+                String campo_password = txtPassword.getText().toString();
+
+                if (campo_usuario.compareTo("hola") == 0 && campo_password.compareTo("papu") == 0)
+                {
+                    Intent a=new Intent(context,MenuPrincipal.class);
+                    String[] info=new String[2];
+                    info[0]=txtUsuario.getText().toString();
+                    info[1]=txtPassword.getText().toString();
+                    a.putExtra("datos_usuario", info);
+                    startActivity(a);
+
+                }
+
+
+            }
+        });
     }
 }
