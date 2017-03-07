@@ -2,6 +2,7 @@ package com.example.luisfernando.superhipermegaperron;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        context=this;
         TV_BUTTON = (ImageButton)findViewById(R.id.TV_BUTTON);
         PHONES_BUTTON = (ImageButton)findViewById(R.id.PHONES_BUTTON);
         GAMES_BUTTON = (ImageButton)findViewById(R.id.GAMES_BUTTON);
@@ -29,13 +31,50 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         MUSIC_BUTTON = (ImageButton)findViewById(R.id.MUSIC_BUTTON);
         LOG_OUT_BUTTON = (ImageButton)findViewById(R.id.LOG_OUT_BUTTON);
 
-        TV_BUTTON.setOnClickListener(this);
-        PHONES_BUTTON.setOnClickListener(this);
-        GAMES_BUTTON.setOnClickListener(this);
-        HHITEMS_BUTTON.setOnClickListener(this);
-        MUSIC_BUTTON.setOnClickListener(this);
-        LOG_OUT_BUTTON.setOnClickListener(this);
+        TV_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent TV = new Intent(context,TVActivity.class);
+                startActivity(TV);
+            }
+        });
+        PHONES_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent phone = new Intent(context,TelefonoActivity.class);
+                startActivity(phone);
+            }
+        });
+        GAMES_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent game = new Intent(context,JuegosActivity.class);
+                startActivity(game);
+            }
+        });
+        HHITEMS_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent electro = new Intent(context,ElectroActivity.class);
+                startActivity(electro);
+            }
+        });
+        MUSIC_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent music = new Intent(context,MusicaActivity.class);
+                startActivity(music);
+            }
+        });
+        LOG_OUT_BUTTON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent logOut = new Intent(context,MainActivity.class);
+                startActivity(logOut);
+            }
+        });
     }
+
 
     @Override
     public void onClick(View v) {

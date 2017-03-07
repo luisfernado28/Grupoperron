@@ -95,6 +95,7 @@
                 android:orientation="vertical"
                 android:layout_weight="0.5"
                 android:padding="10dp">
+
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="115dp"
@@ -102,6 +103,7 @@
                     android:id="@+id/HHITEMS_BUTTON"
                     android:padding="20dp"
                     android:scaleType="fitCenter" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

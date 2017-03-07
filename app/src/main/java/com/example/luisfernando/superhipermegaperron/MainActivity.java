@@ -43,10 +43,11 @@ public class MainActivity extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent holacarajo = new Intent(context,MenuActivity.class);
-                startActivity(holacarajo);
+                Intent menu = new Intent(context,MenuActivity.class);
+                startActivity(menu);
             }
         });
+
 
     }
 }
