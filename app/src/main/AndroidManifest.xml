@@ -15,7 +15,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Registrarse"></activity>
+        <activity android:name=".Registrarse" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".TVActivity" />
+        <activity android:name=".TelefonoActivity" />
+        <activity android:name=".JuegosActivity" />
+        <activity android:name=".ElectroActivity" />
+        <activity android:name=".MusicaActivity"></activity>
     </application>
 
 </manifest>
