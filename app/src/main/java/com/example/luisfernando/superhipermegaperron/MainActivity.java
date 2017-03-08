@@ -55,18 +55,15 @@ public class MainActivity extends AppCompatActivity {
 
                 if (name.compareTo("hola") == 0 && name.compareTo("papu") == 0)
                 {
-                    Intent a=new Intent(context,MenuActivity.class);
+                    Intent menu=new Intent(context,MenuActivity.class);
                     String[] info=new String[2];
                     info[0]=txtUsuario.getText().toString();
                     info[1]=txtPassword.getText().toString();
-                    a.putExtra("datos_usuario", info);
-                    startActivity(a);
-
+                    menu.putExtra("datos_usuario", info);
+                    startActivity(menu);
+                    finish();
                 }
 
-                Intent menu = new Intent(context,MenuActivity.class);
-                startActivity(menu);
-                finish();
             }
         });
 
