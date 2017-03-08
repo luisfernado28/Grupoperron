@@ -6,6 +6,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +26,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton HHITEMS_BUTTON;
     private ImageButton MUSIC_BUTTON;
     private ImageButton LOG_OUT_BUTTON;
+    private CoordinatorLayout coordinador;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Toast welcome = Toast.makeText(getApplicationContext(),"welcome", Toast.LENGTH_SHORT );
@@ -84,8 +89,25 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         MUSIC_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent music = new Intent(context,MusicaActivity.class);
-                startActivity(music);
+                //Intent music = new Intent(context,MusicaActivity.class);
+                //startActivity(music);
+
+                Snackbar snackbar = Snackbar
+                        .make(coordinador, "Musica", Snackbar.LENGTH_LONG)
+                        .setAction("Musica Pirata", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast toast1 = Toast.makeText(getApplicationContext(),
+                                        "Que mal che",
+                                        Toast.LENGTH_SHORT);
+                                toast1.show();
+                            }
+                        });
+
+                snackbar.setActionTextColor(Color.RED);
+                snackbar.show();
+
+
             }
         });
         LOG_OUT_BUTTON.setOnClickListener(new View.OnClickListener() {
