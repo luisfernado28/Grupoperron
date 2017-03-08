@@ -21,7 +21,11 @@
         <activity android:name=".TelefonoActivity" />
         <activity android:name=".JuegosActivity" />
         <activity android:name=".ElectroActivity" />
-        <activity android:name=".MusicaActivity"></activity>
+        <activity android:name=".MusicaActivity" />
+        <activity
+            android:name=".Info"
+            android:label="@string/title_activity_info"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
