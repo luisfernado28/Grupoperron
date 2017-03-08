@@ -87,29 +87,26 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         MUSIC_BUTTON.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent music = new Intent(context,MusicaActivity.class);
-                //startActivity(music);
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar snackbar = Snackbar
+                                .make(coordinador, "Funciona!", Snackbar.LENGTH_LONG)
+                                .setAction("No funciona", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Toast toast1 = Toast.makeText(getApplicationContext(),
+                                                "Claro que funciona!",
+                                                Toast.LENGTH_SHORT);
+                                        toast1.show();
+                                    }
+                                });
 
-                Snackbar snackbar = Snackbar
-                        .make(coordinador, "Funciona!", Snackbar.LENGTH_LONG)
-                        .setAction("No funciona", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Toast toast1 = Toast.makeText(getApplicationContext(),
-                                        "Claro que funciona!",
-                                        Toast.LENGTH_SHORT);
-                                toast1.show();
-                            }
-                        });
-
-                snackbar.setActionTextColor(Color.RED);
-                snackbar.show();
-
-
-            }
+                        snackbar.setActionTextColor(Color.RED);
+                        snackbar.show();
+                    }
         });
+
+
         LOG_OUT_BUTTON.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
