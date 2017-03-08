@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 String name= txtUsuario.getText().toString();
                 String password= txtPassword.getText().toString();
 
-                if (name.compareTo("hola") == 0 && name.compareTo("papu") == 0)
+                if (name.compareTo("hola") == 0 && password.compareTo("papu") == 0)
                 {
                     Intent menu=new Intent(context,MenuActivity.class);
                     String[] info=new String[2];
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
 
     }

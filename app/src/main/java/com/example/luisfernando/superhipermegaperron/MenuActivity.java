@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Context context;
     private Activity activity;
-
     private ImageButton TV_BUTTON;
     private ImageButton PHONES_BUTTON;
     private ImageButton GAMES_BUTTON;
@@ -21,6 +21,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton LOG_OUT_BUTTON;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Toast welcome = Toast.makeText(getApplicationContext(),"welcome", Toast.LENGTH_SHORT );
+        welcome.show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         context=this;
