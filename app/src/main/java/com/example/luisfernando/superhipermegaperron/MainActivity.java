@@ -17,11 +17,17 @@ public class MainActivity extends AppCompatActivity {
     private Button btnRegistarse;
 
     private Context context;
+    // Todo
+    // notificaciones en grupo
+    //  SQL y tabla de datos de sql
+    //Viernes ejemplo git  con ejemplo de preferenced activity
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         context=this;
@@ -43,10 +49,24 @@ public class MainActivity extends AppCompatActivity {
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent menu = new Intent(context,MenuActivity.class);
-                startActivity(menu);
+
+                String name= txtUsuario.getText().toString();
+                String password= txtPassword.getText().toString();
+
+                if (name.compareTo("hola") == 0 && password.compareTo("papu") == 0)
+                {
+                    Intent menu=new Intent(context,MenuActivity.class);
+                    String[] info=new String[2];
+                    info[0]=txtUsuario.getText().toString();
+                    info[1]=txtPassword.getText().toString();
+                    menu.putExtra("datos_usuario", info);
+                    startActivity(menu);
+                    finish();
+                }
+
             }
         });
+
 
 
     }
