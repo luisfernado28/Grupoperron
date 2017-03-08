@@ -93,12 +93,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 //startActivity(music);
 
                 Snackbar snackbar = Snackbar
-                        .make(coordinador, "Musica", Snackbar.LENGTH_LONG)
-                        .setAction("Musica Pirata", new View.OnClickListener() {
+                        .make(coordinador, "Funciona!", Snackbar.LENGTH_LONG)
+                        .setAction("No funciona", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 Toast toast1 = Toast.makeText(getApplicationContext(),
-                                        "Que mal che",
+                                        "Claro que funciona!",
                                         Toast.LENGTH_SHORT);
                                 toast1.show();
                             }
