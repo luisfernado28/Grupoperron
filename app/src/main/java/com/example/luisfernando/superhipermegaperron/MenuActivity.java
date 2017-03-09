@@ -1,10 +1,12 @@
 package com.example.luisfernando.superhipermegaperron;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -89,12 +91,37 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         LOG_OUT_BUTTON.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent logOut = new Intent(context,MainActivity.class);
-                startActivity(logOut);
-            }
-        });
+                    public void onClick(View v)
+                    {
+
+                        AlertDialog.Builder Dialogo = new AlertDialog.Builder(
+                                MenuActivity.this);
+
+                        Dialogo.setTitle("Esta seguro que desea salir?");
+                        Dialogo.setMessage("La sesion se cerrara");
+                        Dialogo.setIcon(android.R.drawable.sym_def_app_icon);
+
+                        Dialogo.setPositiveButton("Si",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent logOut = new Intent(context,MainActivity.class);
+                                        startActivity(logOut);
+                                    }
+                                });
+
+                        Dialogo.setNegativeButton("No",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Toast.makeText(getApplicationContext(), ":(", Toast.LENGTH_SHORT).show();
+                                        dialog.cancel();
+                                    }
+                                });
+                        Dialogo.show();
+
+                    }
+                });
+
+
 
     }
 
