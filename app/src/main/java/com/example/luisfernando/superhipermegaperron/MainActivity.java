@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText txtUsuario;
@@ -19,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnRegistarse;
 
     private Context context;
-    // Todo
+    //TODO
     // notificaciones en grupo
     //  SQL y tabla de datos de sql
     //Viernes ejemplo git  con ejemplo de preferenced activity
@@ -33,6 +37,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         context=this;
+
+        try{
+            BufferedReader archivo = new BufferedReader(new InputStreamReader(
+                    openFileInput("login.panqueque")));
+            String string = archivo.readLine();
+            archivo.close();
+            if(string.equals("true")){
+                Intent menu=new Intent(context,MenuActivity.class);
+                startActivity(menu);
+            }
+        }catch(Exception e){
+
+        }
 
         txtUsuario=(EditText)findViewById(R.id.txtUsuario);
         txtPassword=(EditText)findViewById(R.id.txtPassword);
@@ -57,8 +74,17 @@ public class MainActivity extends AppCompatActivity {
                 String name= txtUsuario.getText().toString();
                 String password= txtPassword.getText().toString();
 
-                if (name.compareTo("hola") == 0 && password.compareTo("papu") == 0)
-                {
+
+                if (name.compareTo("hola") == 0 && password.compareTo("papu") == 0) {
+                    try {
+                        OutputStreamWriter fout =
+                                new OutputStreamWriter(
+                                        openFileOutput("login.panqueque", Context.MODE_PRIVATE));
+                        fout.write("true");
+                        fout.close();
+                    }catch(Exception e){
+
+                    }
                     Intent menu=new Intent(context,MenuActivity.class);
                     String[] info=new String[2];
                     info[0]=txtUsuario.getText().toString();

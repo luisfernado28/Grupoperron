@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.io.OutputStreamWriter;
+
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Context context;
@@ -129,8 +131,18 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                         Dialogo.setPositiveButton("Si",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
+                                        try {
+                                            OutputStreamWriter fout =
+                                                    new OutputStreamWriter(
+                                                            openFileOutput("login.panqueque", Context.MODE_PRIVATE));
+                                            fout.write("");
+                                            fout.close();
+                                        }catch(Exception e){
+
+                                        }
                                         Intent logOut = new Intent(context,MainActivity.class);
                                         startActivity(logOut);
+                                        finish();
                                     }
                                 });
 
