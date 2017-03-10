@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             if(string.equals("true")){
                 Intent menu=new Intent(context,MenuActivity.class);
                 startActivity(menu);
+                finish();
             }
         }catch(Exception e){
 
