@@ -31,7 +31,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton HHITEMS_BUTTON;
     private ImageButton MUSIC_BUTTON;
     private ImageButton LOG_OUT_BUTTON;
-    private CoordinatorLayout coordinador;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +39,19 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         welcome.show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        context=this;
+
+
+
         TV_BUTTON = (ImageButton)findViewById(R.id.TV_BUTTON);
         PHONES_BUTTON = (ImageButton)findViewById(R.id.PHONES_BUTTON);
         GAMES_BUTTON = (ImageButton)findViewById(R.id.GAMES_BUTTON);
         HHITEMS_BUTTON = (ImageButton)findViewById(R.id.HHITEMS_BUTTON);
         MUSIC_BUTTON = (ImageButton)findViewById(R.id.MUSIC_BUTTON);
         LOG_OUT_BUTTON = (ImageButton)findViewById(R.id.LOG_OUT_BUTTON);
+
+
+        context=this;
+
 
         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
 
