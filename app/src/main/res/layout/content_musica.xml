@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/linearLayout"
+        android:id="@+id/listProductos"
         android:layout_below="@+id/spinner1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp">

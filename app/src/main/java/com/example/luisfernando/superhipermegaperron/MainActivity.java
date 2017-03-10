@@ -23,10 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnRegistarse;
 
     private Context context;
-    //TODO
-    // notificaciones en grupo
-    //  SQL y tabla de datos de sql
-    //Viernes ejemplo git  con ejemplo de preferenced activity
+
 
 
     @Override
