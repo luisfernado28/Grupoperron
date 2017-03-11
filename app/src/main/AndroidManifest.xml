@@ -15,6 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Computer_Activity" />
         <activity android:name=".Registrarse" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".TVActivity" />

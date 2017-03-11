@@ -1,5 +1,8 @@
 package com.example.luisfernando.superhipermegaperron;
 
+/**
+ * Created by andres on 10/3/2017.
+ */
 import android.graphics.Color;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -14,7 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MusicaActivity extends AppCompatActivity {
+public class FilaClass_Activity extends AppCompatActivity{
+
 
     private String[] arraySpinner1;
     private String[] arraySpinner2;
@@ -76,10 +80,7 @@ public class MusicaActivity extends AppCompatActivity {
         });
 
 
-
         //ITEM LISTA Y ADAPTADOR
-
-
        /*ArrayList<Item> items=new ArrayList<Item>();
        items.add(new Item(1, "Icono", "Esta es la descripcion del icono",android.R.drawable.ic_menu_camera ));
        items.add(new Item(1, "Play", "Esta es la descripcion de Play", android.R.drawable.ic_media_play));
@@ -89,8 +90,6 @@ public class MusicaActivity extends AppCompatActivity {
         lista.setAdapter(adaptador);
 
 */
-
-
     }
     public void refreshListView(){
 

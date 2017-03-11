@@ -8,10 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +22,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     private Context context;
     private Activity activity;
+
     private ImageButton TV_BUTTON;
     private ImageButton PHONES_BUTTON;
     private ImageButton GAMES_BUTTON;
@@ -98,28 +96,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         MUSIC_BUTTON.setOnClickListener(new View.OnClickListener() {
-                    /*@Override
-                    public void onClick(View view) {
-                        Snackbar snackbar = Snackbar
-                                .make(coordinador, "Funciona!", Snackbar.LENGTH_LONG)
-                                .setAction("No funciona", new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        Toast toast1 = Toast.makeText(getApplicationContext(),
-                                                "Claro que funciona!",
-                                                Toast.LENGTH_SHORT);
-                                        toast1.show();
-                                    }
-                                });
-
-                        snackbar.setActionTextColor(Color.RED);
-                        snackbar.show();
-                    }*/
                     @Override
                     public void onClick(View v) {
-                        Intent musica = new Intent(context,MusicaActivity.class);
+                        Intent musica = new Intent(context,Computer_Activity.class);
                         startActivity(musica);
                     }
+
         });
 
 
