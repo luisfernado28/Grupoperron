@@ -29,7 +29,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
     private ImageButton PHONES_BUTTON;
     private ImageButton GAMES_BUTTON;
     private ImageButton HHITEMS_BUTTON;
-    private ImageButton MUSIC_BUTTON;
+    private ImageButton PC_BUTTON;
     private ImageButton LOG_OUT_BUTTON;
 
 
@@ -46,7 +46,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         PHONES_BUTTON = (ImageButton)findViewById(R.id.PHONES_BUTTON);
         GAMES_BUTTON = (ImageButton)findViewById(R.id.GAMES_BUTTON);
         HHITEMS_BUTTON = (ImageButton)findViewById(R.id.HHITEMS_BUTTON);
-        MUSIC_BUTTON = (ImageButton)findViewById(R.id.MUSIC_BUTTON);
+        PC_BUTTON = (ImageButton)findViewById(R.id.PC_BUTTON);
         LOG_OUT_BUTTON = (ImageButton)findViewById(R.id.LOG_OUT_BUTTON);
 
 
@@ -97,7 +97,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(electro);
             }
         });
-        MUSIC_BUTTON.setOnClickListener(new View.OnClickListener() {
+        PC_BUTTON.setOnClickListener(new View.OnClickListener() {
                     /*@Override
                     public void onClick(View view) {
                         Snackbar snackbar = Snackbar
@@ -117,7 +117,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                     }*/
                     @Override
                     public void onClick(View v) {
-                        Intent musica = new Intent(context,MusicaActivity.class);
+                        Intent musica = new Intent(context,PcActivity.class);
                         startActivity(musica);
                     }
         });

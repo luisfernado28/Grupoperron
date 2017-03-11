@@ -62,7 +62,10 @@ public class MusicaActivity extends AppCompatActivity {
         });
        ListView lista=(ListView)findViewById(R.id.listProductos);
 
-      /*  ArrayList<Item> items=new ArrayList<Item>();
+
+        lista.refreshDrawableState();
+/*
+       ArrayList<Item> items=new ArrayList<Item>();
        items.add(new Item(1, "Icono", "Esta es la descripcion del icono",android.R.drawable.ic_menu_camera ));
        items.add(new Item(1, "Play", "Esta es la descripcion de Play", android.R.drawable.ic_media_play));
 
@@ -78,14 +81,17 @@ public class MusicaActivity extends AppCompatActivity {
             }
         });
 
+
+
         arraySpinner=getResources().getStringArray(R.array.array_prods);
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arraySpinner);
         lista.setAdapter(adaptador1);
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> array, View vista, int posicion, long id) {
-                TextView texto = (TextView) vista.findViewById(android.R.id.text1);
-                String contenido = texto.getText().toString();
-                Log.e("Item seleccionado", contenido);
+                    TextView texto = (TextView) vista.findViewById(android.R.id.text1);
+                    String contenido = texto.getText().toString();
+                    Log.e("Item seleccionado", contenido);
+
             }
         });
     }
