@@ -35,11 +35,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Toast welcome = Toast.makeText(getApplicationContext(),"welcome", Toast.LENGTH_SHORT );
-        welcome.show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+        Toast welcome = Toast.makeText(getApplicationContext(),"welcome", Toast.LENGTH_SHORT );
+        welcome.show();
 
 
         TV_BUTTON = (ImageButton)findViewById(R.id.TV_BUTTON);
@@ -48,8 +47,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         HHITEMS_BUTTON = (ImageButton)findViewById(R.id.HHITEMS_BUTTON);
         PC_BUTTON = (ImageButton)findViewById(R.id.PC_BUTTON);
         LOG_OUT_BUTTON = (ImageButton)findViewById(R.id.LOG_OUT_BUTTON);
-
-
         context=this;
 
 
