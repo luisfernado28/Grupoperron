@@ -20,13 +20,19 @@ public class TVActivity extends AppCompatActivity {
 
         ListView lista=(ListView)findViewById(R.id.listview);
 
-        //Agregamos algunas filas
         ArrayList<Item> items=new ArrayList<Item>();
-        items.add(new Item(1, "Icono", "Esta es la descripcion del icono", android.R.drawable.ic_menu_camera));
+        items.add(new Item(1, "Tv Sumsung 44 plg", "UHD ", R.drawable.tv1));
         items.add(new Item(1, "Play", "Esta es la descripcion de Play", android.R.drawable.ic_media_play));
         items.add(new Item(1, "Galeria", "Esta es la descripcion de Galeria", android.R.drawable.ic_menu_gallery));
         items.add(new Item(1, "Nuevo", "Esta es la descripcion de Nuevo", android.R.drawable.ic_menu_more));
-        items.add(new Item(1, "poi", "asdfasdfasdfaso", android.R.drawable.ic_dialog_info));
+        items.add(new Item(1, "poi", "asdfasdfasdfaso", android.R.drawable.ic_delete)) ;
+        items.add(new Item(1, "Icono", "Esta es la descripcion del icono", android.R.drawable.ic_menu_camera));
+        items.add(new Item(1, "Play", "Esta es la descripcion de Play", android.R.drawable.ic_media_play));
+        items.add(new Item(1, "Galeria", "Esta es la descripcion de Galeria", android.R.drawable.ic_menu_gallery));
+        items.add(new Item(1, "Tv Sumsung 44 plg", "UHD ", R.drawable.tv1));
+        items.add(new Item(1, "Play", "Esta es la descripcion de Play", android.R.drawable.ic_media_play));
+        items.add(new Item(1, "Galeria", "Esta es la descripcion de Galeria", android.R.drawable.ic_menu_gallery));
+        items.add(new Item(1, "Nuevo", "Esta es la descripcion de Nuevo", android.R.drawable.ic_menu_more));
 
 
         //Instanciamos el adaptador
