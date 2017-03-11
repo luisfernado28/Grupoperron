@@ -21,23 +21,16 @@ public class TVActivity extends AppCompatActivity {
         ListView lista=(ListView)findViewById(R.id.listview);
 
         ArrayList<Item> items=new ArrayList<Item>();
-        items.add(new Item(1, "Tv Sumsung 44 plg", "UHD ", R.drawable.tv1));
-        items.add(new Item(1, "Play", "Esta es la descripcion de Play", android.R.drawable.ic_media_play));
-        items.add(new Item(1, "Galeria", "Esta es la descripcion de Galeria", android.R.drawable.ic_menu_gallery));
-        items.add(new Item(1, "Nuevo", "Esta es la descripcion de Nuevo", android.R.drawable.ic_menu_more));
-        items.add(new Item(1, "poi", "asdfasdfasdfaso", android.R.drawable.ic_delete)) ;
-        items.add(new Item(1, "Icono", "Esta es la descripcion del icono", android.R.drawable.ic_menu_camera));
-        items.add(new Item(1, "Play", "Esta es la descripcion de Play", android.R.drawable.ic_media_play));
-        items.add(new Item(1, "Galeria", "Esta es la descripcion de Galeria", android.R.drawable.ic_menu_gallery));
-        items.add(new Item(1, "Tv Sumsung 44 plg", "UHD ", R.drawable.tv1));
-        items.add(new Item(1, "Play", "Esta es la descripcion de Play", android.R.drawable.ic_media_play));
-        items.add(new Item(1, "Galeria", "Esta es la descripcion de Galeria", android.R.drawable.ic_menu_gallery));
-        items.add(new Item(1, "Nuevo", "Esta es la descripcion de Nuevo", android.R.drawable.ic_menu_more));
+        items.add(new Item(1, "Samsung Curva 48 plg Ultra HD Smart Led TV", " 2241,35 $us", R.drawable.img1));
+        items.add(new Item(1, "Samsung 65 plg Full HD Smart Led HDTV", " 1493,85 $us", R.drawable.img2));
+        items.add(new Item(1, "Samsung 55 plg 4k Ultra HD Smart Led TV", "916,55 $us", R.drawable.img3));
+        items.add(new Item(1, "Samsung 54'6 plg HD Smart Led TV", "442,46  $us", R.drawable.img4));
+        items.add(new Item(1, "Samsung 43 plg HD Smart Led TV", " 333,33 $us", R.drawable.img5));
+        items.add(new Item(1, "Samsung 40 plg HD Led TV", " 315,12 $us", R.drawable.img6));
 
 
-        //Instanciamos el adaptador
         AdaptadorItem adaptador=new AdaptadorItem(TVActivity.this, items);
-        //Utilizamos el adaptador
+
         lista.setAdapter(adaptador);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
