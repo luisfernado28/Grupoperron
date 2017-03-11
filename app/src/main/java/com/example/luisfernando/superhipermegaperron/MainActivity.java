@@ -3,14 +3,18 @@ package com.example.luisfernando.superhipermegaperron;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -41,11 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
         context=this;
 
-        BaseDatos crearBD = new BaseDatos(context,VERSION);
-        db = crearBD.getWritableDatabase();
+        final BaseDatos baseDatos = new BaseDatos(context,VERSION);
+        db = baseDatos.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-
 
         try{
             BufferedReader archivo = new BufferedReader(new InputStreamReader(
@@ -56,6 +59,25 @@ public class MainActivity extends AppCompatActivity {
                 Intent menu=new Intent(context,MenuActivity.class);
                 startActivity(menu);
                 finish();
+            }
+        }catch(Exception e){
+
+        }
+
+        try{
+            Intent intent = getIntent();
+            String userString = intent.getStringExtra("user");
+            boolean ver = intent.getBooleanExtra("ver", false);
+            if(ver){
+                Log.e("intent", "working");
+                Gson gson = new Gson();
+                user = gson.fromJson(userString, User.class);
+                values.put("user",user.getUSER_NAME());
+                values.put("name",user.getNAME());
+                values.put("password",user.getPASSWORD());
+                values.put("email",user.getE_MAIL());
+                db.insert("users", null, values);
+                db.close();
             }
         }catch(Exception e){
 
@@ -74,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent a=new Intent(context,Registrarse.class);
                 startActivity(a);
+                finish();
             }
         });
 
@@ -92,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                                         openFileOutput("login.panqueque", Context.MODE_PRIVATE));
                         fout.write("true");
                         fout.close();
+
                     }catch(Exception e){
 
                     }
@@ -102,7 +126,40 @@ public class MainActivity extends AppCompatActivity {
                     menu.putExtra("datos_usuario", info);
                     startActivity(menu);
                     finish();
+                }else{
+                    Log.e("primer else", "funciona");
+                    Log.e("querry", "SELECT password FROM users WHERE  user =" + " '"+
+                            txtUsuario.getText().toString()+ "'");
+                    db = baseDatos.getReadableDatabase();
+                    Cursor users_existing=db.rawQuery("SELECT password FROM users WHERE  user =" + " '"+
+                            txtUsuario.getText().toString()+ "'", null);
+                    Log.e("bool", ""+ users_existing.moveToFirst());
+                    if(users_existing.moveToFirst()) {
+                        Log.e("primer if", "funciona"+ users_existing.getString(0).toString());
+                        if(users_existing.getString(0).toString().equals(txtPassword.getText().toString())){
+                            Log.e("segundo if", "funciona");
+                            try {
+                                OutputStreamWriter fout =
+                                        new OutputStreamWriter(
+                                                openFileOutput("login.panqueque", Context.MODE_PRIVATE));
+                                fout.write("true");
+                                fout.close();
+
+                            }catch(Exception e){
+
+                            }
+                            Intent menu=new Intent(context,MenuActivity.class);
+                            String[] info=new String[2];
+                            info[0]=txtUsuario.getText().toString();
+                            info[1]=txtPassword.getText().toString();
+                            menu.putExtra("datos_usuario", info);
+                            startActivity(menu);
+                            finish();
+                        }
+
+                    }
                 }
+
 
             }
         });

@@ -42,12 +42,13 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="Password again"
+            android:id="@+id/txtPassA"
             android:layout_marginTop="20dp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:id="@+id/email"
+            android:id="@+id/txtEmail"
             android:hint="E-mail"
             android:layout_marginTop="20dp"/>
 

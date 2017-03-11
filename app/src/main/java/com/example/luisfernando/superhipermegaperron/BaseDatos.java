@@ -15,11 +15,15 @@ public class BaseDatos extends SQLiteOpenHelper{
     //Versión de la base de datos
     public BaseDatos(Context context, int VERSION){
         super(context, DB_NAME, null, VERSION);
+        Log.e("DB","Constructor");
     }
 
+    @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table user (id integer primary key autoincrement not null, user varchar, name double, password varchar, email varchar);");
+        db.execSQL("create table users (id integer primary key autoincrement not null, user varchar, name double, password varchar, email varchar);");
+        Log.e("DB","Create");
     }
+    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
 
     }
