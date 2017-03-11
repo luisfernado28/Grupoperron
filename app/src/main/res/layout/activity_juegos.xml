@@ -10,4 +10,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.luisfernando.superhipermegaperron.JuegosActivity">
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/spinner"
+
+
+
+
+        android:dropDownWidth="match_parent" />
 </RelativeLayout>

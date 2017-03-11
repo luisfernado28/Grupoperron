@@ -8,9 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-//import android.support.design.widget.CoordinatorLayout;
-//import android.support.design.widget.Snackbar;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,17 +16,20 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.io.OutputStreamWriter;
+
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Context context;
     private Activity activity;
+
     private ImageButton TV_BUTTON;
     private ImageButton PHONES_BUTTON;
     private ImageButton GAMES_BUTTON;
     private ImageButton HHITEMS_BUTTON;
     private ImageButton MUSIC_BUTTON;
     private ImageButton LOG_OUT_BUTTON;
-  //  private CoordinatorLayout coordinador;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +37,19 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         welcome.show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        context=this;
+
+
+
         TV_BUTTON = (ImageButton)findViewById(R.id.TV_BUTTON);
         PHONES_BUTTON = (ImageButton)findViewById(R.id.PHONES_BUTTON);
         GAMES_BUTTON = (ImageButton)findViewById(R.id.GAMES_BUTTON);
         HHITEMS_BUTTON = (ImageButton)findViewById(R.id.HHITEMS_BUTTON);
         MUSIC_BUTTON = (ImageButton)findViewById(R.id.MUSIC_BUTTON);
         LOG_OUT_BUTTON = (ImageButton)findViewById(R.id.LOG_OUT_BUTTON);
+
+
+        context=this;
+
 
         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
 
@@ -89,28 +96,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         MUSIC_BUTTON.setOnClickListener(new View.OnClickListener() {
-                    /*@Override
-                    public void onClick(View view) {
-                        Snackbar snackbar = Snackbar
-                                .make(coordinador, "Funciona!", Snackbar.LENGTH_LONG)
-                                .setAction("No funciona", new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        Toast toast1 = Toast.makeText(getApplicationContext(),
-                                                "Claro que funciona!",
-                                                Toast.LENGTH_SHORT);
-                                        toast1.show();
-                                    }
-                                });
-
-                        snackbar.setActionTextColor(Color.RED);
-                        snackbar.show();
-                    }*/
                     @Override
                     public void onClick(View v) {
-                        Intent musica = new Intent(context,MusicaActivity.class);
+                        Intent musica = new Intent(context,Computer_Activity.class);
                         startActivity(musica);
                     }
+
         });
 
 
@@ -128,8 +119,18 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                         Dialogo.setPositiveButton("Si",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
+                                        try {
+                                            OutputStreamWriter fout =
+                                                    new OutputStreamWriter(
+                                                            openFileOutput("login.panqueque", Context.MODE_PRIVATE));
+                                            fout.write("");
+                                            fout.close();
+                                        }catch(Exception e){
+
+                                        }
                                         Intent logOut = new Intent(context,MainActivity.class);
                                         startActivity(logOut);
+                                        finish();
                                     }
                                 });
 

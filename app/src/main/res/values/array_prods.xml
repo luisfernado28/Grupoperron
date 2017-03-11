@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_prods">
+
+        <item>Parlante</item>
+        <item>Amplificador</item>
+        <item>Coca Cola</item>
+        <item>Servilletas</item>
+        <item>Agua mineral</item>
+        <item>lol</item>
+        <item>chas</item>
+        <item>Pepsi</item>
+
+    </string-array>
+
+</resources>
