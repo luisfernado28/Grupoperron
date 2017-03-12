@@ -156,10 +156,11 @@ public class MainActivity extends AppCompatActivity {
                             menu.putExtra("datos_usuario", info);
                             startActivity(menu);
                             finish();
-                        }else{
-                            Toast.makeText(context,"Usuario o contraseña incorrectos.", Toast.LENGTH_SHORT).show();
                         }
 
+                    }else{
+                        Log.e("tostada", "funca");
+                        Toast.makeText(context,"Usuario o contraseña incorrectos.", Toast.LENGTH_SHORT).show();
                     }
                 }
 
