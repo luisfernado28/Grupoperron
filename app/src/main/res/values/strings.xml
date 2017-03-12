@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Superhipermegaperron</string>
+    <string name="app_name" translatable="false">Eloy Ahora!</string>
     <string name="lbl1">Televisions</string>
     <string name="lbl2">Phones</string>
     <string name="lbl3">Games</string>

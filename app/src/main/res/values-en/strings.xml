@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Superhipermegaperron</string>
     <string name="lbl1">Televisions</string>
     <string name="lbl2">Phones</string>
     <string name="lbl3">Games</string>
     <string name="lbl4">Home appliances</string>
     <string name="lbl5">Pc</string>
+    <string name="title_activity_info">Info</string>
 </resources>
