@@ -29,6 +29,7 @@ public class Computer_Activity extends AppCompatActivity{
         items.add(new Item(1, "Asus maximus Z270 Motherboard", "199.99  $us", R.drawable.asus));
         items.add(new Item(1,"32GB RAM Corsair Dominator Platinum DDR4"," 139.00 $us", R.drawable.ddr4));
         items.add(new Item(1, "AMD Ryzen7 1800X", "499.99  $us", R.drawable.ryzen));
+
         items.add(new Item(1, "Lenovo thinkpad X1", "522.99 $us", R.drawable.lenovo));
 
 
