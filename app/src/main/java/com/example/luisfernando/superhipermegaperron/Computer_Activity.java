@@ -31,8 +31,6 @@ public class Computer_Activity extends AppCompatActivity{
         items.add(new Item(1, "AMD Ryzen7 1800X", "499.99  $us", R.drawable.ryzen));
         items.add(new Item(1, "Lenovo thinkpad X1", "522.99 $us", R.drawable.lenovo));
 
-
-
         AdaptadorItem adaptador=new AdaptadorItem(Computer_Activity.this, items);
 
         lista.setAdapter(adaptador);
