@@ -12,14 +12,6 @@
     tools:context="com.example.luisfernando.superhipermegaperron.MainActivity">
 
     <Button
-        android:text="Limpiar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnRegistrarse"
-        android:layout_toEndOf="@+id/btnRegistrarse"
-        android:id="@+id/btnlimpiar" />
-
-    <Button
         android:text="Registrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -75,5 +67,13 @@
         android:layout_marginBottom="40dp"
         android:layout_above="@+id/lblPassword"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Limpiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnlimpiar"
+        android:layout_above="@+id/btnRegistrarse"
+        android:layout_toEndOf="@+id/btnRegistrarse" />
 
 </RelativeLayout>
