@@ -61,7 +61,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 .setContentIntent(pIntent)
                 .setDefaults(Notification.DEFAULT_SOUND)
                 .build();
-
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(0, notification);
 
