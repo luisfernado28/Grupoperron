@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.e("querry", "SELECT password FROM users WHERE  user =" + " '"+
                             txtUsuario.getText().toString()+ "'");
                     db = baseDatos.getReadableDatabase();
-                    Cursor users_existing=db.rawQuery("SELECT password FROM users WHERE  user =" + " '"+
+                    Cursor users_existing=db.rawQuery("SELECT password FROM users WHERE user =" + " '"+
                             txtUsuario.getText().toString()+ "'", null);
                     Log.e("bool", ""+ users_existing.moveToFirst());
                     if(users_existing.moveToFirst()) {
