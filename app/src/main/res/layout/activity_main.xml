@@ -40,24 +40,6 @@
         android:layout_toEndOf="@+id/lblUsuario" />
 
     <TextView
-        android:text="Password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblPassword"
-        android:layout_above="@+id/txtPassword"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtUsuario"
-        android:layout_above="@+id/lblPassword"
-        android:layout_toStartOf="@+id/btnlimpiar"
-        android:layout_marginBottom="71dp" />
-
-    <TextView
         android:text="Usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,23 +48,32 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="44dp" />
 
+    <TextView
+        android:text="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lblPassword"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/txtPassword"
-        android:layout_above="@+id/btnlimpiar"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="25dp" />
+        android:layout_below="@+id/lblPassword"
+        android:layout_toStartOf="@+id/btnlimpiar"
+        android:layout_marginTop="12dp" />
 
-    <ImageView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo1"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/txtUsuario" />
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtUsuario"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@+id/lblPassword"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
