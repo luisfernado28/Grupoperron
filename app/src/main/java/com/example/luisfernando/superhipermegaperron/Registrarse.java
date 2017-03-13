@@ -37,18 +37,25 @@ public class Registrarse extends AppCompatActivity {
         BTN_SUBMIT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(TXT_PASSWORD.getText().toString().equals(TXT_PASS_AGAIN.getText().toString())){
-                    Intent intent=new Intent(context,MainActivity.class);
-                    Gson gson = new Gson();
-                    User user = new User(new String[]{TXT_USER.getText().toString(), TXT_NAME.getText().toString(),
-                            TXT_EMAIL.getText().toString(), TXT_PASSWORD.getText().toString()});
-                    String userString = gson.toJson(user);
-                    intent.putExtra("user", userString);
-                    intent.putExtra("ver", true);
-                    startActivity(intent);
-                    finish();
-                }else{
+                if(!TXT_PASSWORD.getText().toString().equals("")&&
+                        !TXT_NAME.getText().toString().equals("")&&
+                        !TXT_USER.getText().toString().equals("")&&
+                        !TXT_EMAIL.getText().toString().equals("")){
+                    if(TXT_PASSWORD.getText().toString().equals(TXT_PASS_AGAIN.getText().toString())){
+                            Intent intent=new Intent(context,MainActivity.class);
+                        Gson gson = new Gson();
+                        User user = new User(new String[]{TXT_USER.getText().toString(), TXT_NAME.getText().toString(),
+                                TXT_EMAIL.getText().toString(), TXT_PASSWORD.getText().toString()});
+                        String userString = gson.toJson(user);
+                        intent.putExtra("user", userString);
+                        intent.putExtra("ver", true);
+                        startActivity(intent);
+                        finish();
+                    }else{
                     Toast.makeText(context, "Password texts must be equal", Toast.LENGTH_LONG).show();
+                      }
+                }else{
+                    Toast.makeText(context, "Please fill the form", Toast.LENGTH_LONG).show();
                 }
             }
         });
