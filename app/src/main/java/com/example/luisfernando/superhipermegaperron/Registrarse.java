@@ -41,8 +41,10 @@ public class Registrarse extends AppCompatActivity {
                         !TXT_NAME.getText().toString().equals("")&&
                         !TXT_USER.getText().toString().equals("")&&
                         !TXT_EMAIL.getText().toString().equals("")){
-                    if(TXT_PASSWORD.getText().toString().equals(TXT_PASS_AGAIN.getText().toString())){
-                            Intent intent=new Intent(context,MainActivity.class);
+                    if(!TXT_EMAIL.getText().toString().contains("@")&&!TXT_EMAIL.getText().toString().contains(".")){
+                        Toast.makeText(context, "Enter a valid E-mail", Toast.LENGTH_LONG).show();
+                    } else if(TXT_PASSWORD.getText().toString().equals(TXT_PASS_AGAIN.getText().toString())){
+                        Intent intent=new Intent(context,MainActivity.class);
                         Gson gson = new Gson();
                         User user = new User(new String[]{TXT_USER.getText().toString(), TXT_NAME.getText().toString(),
                                 TXT_EMAIL.getText().toString(), TXT_PASSWORD.getText().toString()});

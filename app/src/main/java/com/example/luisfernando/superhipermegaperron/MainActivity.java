@@ -3,6 +3,7 @@ package com.example.luisfernando.superhipermegaperron;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -31,40 +32,32 @@ public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase db;
     public static final int VERSION = 1;
     private User user;
-
+    private String activeUser[] = new String[2];
 
     private Context context;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
         context=this;
 
+        //Se instancia la base de Datos
         final BaseDatos baseDatos = new BaseDatos(context,VERSION);
         db = baseDatos.getWritableDatabase();
-
         ContentValues values = new ContentValues();
 
-        try{
-            BufferedReader archivo = new BufferedReader(new InputStreamReader(
-                    openFileInput("login.panqueque")));
-            String string = archivo.readLine();
-            archivo.close();
-            if(string.equals("true")){
-                Intent menu=new Intent(context,MenuActivity.class);
-                startActivity(menu);
-                finish();
-            }
-        }catch(Exception e){
-
+        //Se verifica el one time LOGIN
+        SharedPreferences prefs =
+                getSharedPreferences("ActiveUser", Context.MODE_PRIVATE);
+        activeUser[0] = prefs.getString("User", "");
+        activeUser[1] = prefs.getString("Password", "");
+        if(!(activeUser[0].equals("") && activeUser[1].equals(""))){
+            callIntent();
         }
-
+        /*En caso de un nuevo registro se reciben los datos del nuevo usuario y se guarda en la
+        base de datos*/
         try{
             Intent intent = getIntent();
             String userString = intent.getStringExtra("user");
@@ -84,14 +77,14 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        //Se asignan los views
         txtUsuario=(EditText)findViewById(R.id.txtUsuario);
         txtPassword=(EditText)findViewById(R.id.txtPassword);
         btnEnviar=(Button)findViewById(R.id.btnEnviar);
         btnLimpiar=(Button)findViewById(R.id.btnlimpiar);
         btnRegistarse=(Button)findViewById(R.id.btnRegistrarse);
 
-
-
+        //Función botón registrarse
         btnRegistarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,80 +94,67 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Función botón Enviar y verificación
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String name= txtUsuario.getText().toString();
-                String password= txtPassword.getText().toString();
-
-
-                if (name.compareTo("hola") == 0 && password.compareTo("papu") == 0) {
-                    try {
-                        OutputStreamWriter fout =
-                                new OutputStreamWriter(
-                                        openFileOutput("login.panqueque", Context.MODE_PRIVATE));
-                        fout.write("true");
-                        fout.close();
-
-                    }catch(Exception e){
-
-                    }
-                    Intent menu=new Intent(context,MenuActivity.class);
-                    String[] info=new String[2];
-                    info[0]=txtUsuario.getText().toString();
-                    info[1]=txtPassword.getText().toString();
-                    menu.putExtra("datos_usuario", info);
-                    startActivity(menu);
-                    finish();
+                String pass= txtPassword.getText().toString();
+                //Palabras clave
+                if (name.compareTo("hola") == 0 && pass.compareTo("papu") == 0) {
+                    oneTimeLogIn(name, pass);
+                    callIntent();
                 }else{
-                    Log.e("primer else", "funciona");
-                    Log.e("querry", "SELECT password FROM users WHERE  user =" + " '"+
-                            txtUsuario.getText().toString()+ "'");
                     db = baseDatos.getReadableDatabase();
+
+                    //Querry para SQL
                     Cursor users_existing=db.rawQuery("SELECT password FROM users WHERE user =" + " '"+
                             txtUsuario.getText().toString()+ "'", null);
-                    Log.e("bool", ""+ users_existing.moveToFirst());
+
+                    //Verificación real en la base de datos
                     if(users_existing.moveToFirst()) {
-                        Log.e("primer if", "funciona"+ users_existing.getString(0).toString());
-                        if(users_existing.getString(0).toString().equals(txtPassword.getText().toString())){
-                            Log.e("segundo if", "funciona");
-                            try {
-                                OutputStreamWriter fout =
-                                        new OutputStreamWriter(
-                                                openFileOutput("login.panqueque", Context.MODE_PRIVATE));
-                                fout.write("true");
-                                fout.close();
-
-                            }catch(Exception e){
-
-                            }
-                            Intent menu=new Intent(context,MenuActivity.class);
-                            String[] info=new String[2];
-                            info[0]=txtUsuario.getText().toString();
-                            info[1]=txtPassword.getText().toString();
-                            menu.putExtra("datos_usuario", info);
-                            startActivity(menu);
-                            finish();
+                        if(users_existing.getString(0).equals(pass)){
+                            users_existing.close();
+                            oneTimeLogIn(name, pass);
+                            callIntent();
+                        }else{
+                            Toast.makeText(context,"Usuario o contraseña incorrectos.", Toast.LENGTH_SHORT).show();
                         }
-
                     }else{
-                        Log.e("tostada", "funca");
                         Toast.makeText(context,"Usuario o contraseña incorrectos.", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
             }
         });
 
+        //Función botón Limpiar
         btnLimpiar.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 txtUsuario.setText("");
                 txtPassword.setText("");
             }
         }));
+    }
+
+    //FACTORIZACIÓN DE CÓDIGO
+    public void oneTimeLogIn(String name, String pass){
+        //Se crea o modifica el archivo de Preferencias
+        SharedPreferences prefs =
+                getSharedPreferences("ActiveUser", Context.MODE_PRIVATE);
+        this.activeUser[0] = name;
+        this.activeUser[1] = pass;
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("User", activeUser[0]);
+        editor.putString("Password", activeUser[1]);
+        editor.commit();
+    }
+    public void callIntent(){
+        //Llama al Intent del menú principal
+        Intent menu = new Intent(context,MenuActivity.class);
+        menu.putExtra("activeUser", this.activeUser);
+        startActivity(menu);
+        finish();
     }
 }

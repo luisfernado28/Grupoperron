@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.CoordinatorLayout;
@@ -15,53 +16,60 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.OutputStreamWriter;
 
-public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
+public class MenuActivity extends AppCompatActivity{
 
     private Context context;
     private Activity activity;
-    private ImageButton TV_BUTTON;
-    private ImageButton PHONES_BUTTON;
-    private ImageButton GAMES_BUTTON;
-    private ImageButton HHITEMS_BUTTON;
-    private ImageButton PC_BUTTON;
-    private ImageButton LOG_OUT_BUTTON;
+    private Button TV_BUTTON;
+    private Button PHONES_BUTTON;
+    private Button GAMES_BUTTON;
+    private Button HHITEMS_BUTTON;
+    private Button PC_BUTTON;
+    private Button LOG_OUT_BUTTON;
+    private NotificationManager notificationManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        Toast welcome = Toast.makeText(getApplicationContext(),"welcome", Toast.LENGTH_SHORT );
-        welcome.show();
 
+        TV_BUTTON = (Button)findViewById(R.id.TV_BUTTON);
+        PHONES_BUTTON = (Button)findViewById(R.id.PHONES_BUTTON);
+        GAMES_BUTTON = (Button)findViewById(R.id.GAMES_BUTTON);
+        HHITEMS_BUTTON = (Button)findViewById(R.id.HHITEMS_BUTTON);
+        PC_BUTTON = (Button)findViewById(R.id.PC_BUTTON);
+        LOG_OUT_BUTTON = (Button)findViewById(R.id.LOG_OUT_BUTTON);
 
-        TV_BUTTON = (ImageButton)findViewById(R.id.TV_BUTTON);
-        PHONES_BUTTON = (ImageButton)findViewById(R.id.PHONES_BUTTON);
-        GAMES_BUTTON = (ImageButton)findViewById(R.id.GAMES_BUTTON);
-        HHITEMS_BUTTON = (ImageButton)findViewById(R.id.HHITEMS_BUTTON);
-        PC_BUTTON = (ImageButton)findViewById(R.id.PC_BUTTON);
-        LOG_OUT_BUTTON = (ImageButton)findViewById(R.id.LOG_OUT_BUTTON);
         context=this;
 
+        Intent logIn = getIntent();
+        String activeUser[] = new String[2];
+        activeUser = logIn.getStringArrayExtra("activeUser");
+        if(activeUser[0].equals("hola")){
+            Toast.makeText(getApplicationContext(),"Welcome developer", Toast.LENGTH_SHORT ).show();
+        }else{
+            Toast.makeText(getApplicationContext(),"Welcome " + activeUser[0], Toast.LENGTH_SHORT ).show();
+        }
 
         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-
         PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 
-        Notification notification = new NotificationCompat.Builder(MenuActivity.this)
-                .setContentTitle("BIENVENIDO")
-                .setContentText("OYE VOLVÉ")
+        final Notification notification = new NotificationCompat.Builder(MenuActivity.this)
+                .setContentTitle("Eloy, ahora!")
+                .setContentText("Bienvenido")
                 .setSmallIcon(R.drawable.notification)
                 .setContentIntent(pIntent)
                 .setDefaults(Notification.DEFAULT_SOUND)
                 .build();
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(0, notification);
 
 
@@ -143,6 +151,14 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
                                         }
                                         Intent logOut = new Intent(context,MainActivity.class);
+                                        notificationManager.cancelAll();
+                                        SharedPreferences prefs =
+                                                getSharedPreferences("ActiveUser", Context.MODE_PRIVATE);
+                                        String[] activeUser = {"",""};
+                                        SharedPreferences.Editor editor = prefs.edit();
+                                        editor.putString("User", activeUser[0]);
+                                        editor.putString("Password", activeUser[1]);
+                                        editor.commit();
                                         startActivity(logOut);
                                         finish();
                                     }
@@ -160,13 +176,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
 
-
-
     }
-
-
     @Override
-    public void onClick(View v) {
-
+    public void onDestroy(){
+        notificationManager.cancelAll();
+        super.onDestroy();
     }
 }
