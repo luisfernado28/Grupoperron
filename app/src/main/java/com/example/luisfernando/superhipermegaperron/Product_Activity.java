@@ -20,10 +20,10 @@ public class Product_Activity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-
         int ap= intent.getIntExtra("imagen",R.drawable.aspiradora);
 
-        foto = (ImageView) findViewById(ap);
+        foto = (ImageView) findViewById(R.id.foto_decs);
+        foto.setImageDrawable(getDrawable(ap));
 
 
 

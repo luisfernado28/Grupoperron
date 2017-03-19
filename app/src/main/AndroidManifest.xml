@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.luisfernando.superhipermegaperron">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
    <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,12 +19,12 @@
        <activity android:name=".Product_Activity" />
        <activity android:name=".Computer_Activity" />
        <activity android:name=".Registrarse" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".TVActivity" />
-        <activity android:name=".TelefonoActivity" />
-        <activity android:name=".JuegosActivity" />
-        <activity android:name=".ElectroActivity" />
-        <activity android:name=".MusicaActivity" />
+       <activity android:name=".MenuActivity" />
+       <activity android:name=".TVActivity" />
+       <activity android:name=".TelefonoActivity" />
+       <activity android:name=".JuegosActivity" />
+       <activity android:name=".ElectroActivity" />
+       <activity android:name=".MusicaActivity" />
    </application>
 
 </manifest>
