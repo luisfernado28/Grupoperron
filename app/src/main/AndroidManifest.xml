@@ -14,6 +14,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+       <activity android:name=".Product_Activity" />
        <activity android:name=".Computer_Activity" />
        <activity android:name=".Registrarse" />
         <activity android:name=".MenuActivity" />
