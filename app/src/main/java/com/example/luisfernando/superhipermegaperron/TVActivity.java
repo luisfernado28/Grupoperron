@@ -38,6 +38,17 @@ public class TVActivity extends AppCompatActivity {
                                     long id) {
                 TextView titulo=(TextView)vista.findViewById(R.id.titulo);
                 Log.e("Item seleccionado", titulo.getText().toString());
+
+                switch (posicion){
+                    case 0:
+
+                        break;
+
+
+                }
+
+
+
             }
         });
 
