@@ -48,7 +48,10 @@ public class TVActivity extends AppCompatActivity {
                 Log.e("Item seleccionado", titulo.getText().toString());
 
                 Intent prod = new Intent(context,Product_Activity.class);
-                prod.putExtra("img",R.drawable.img1);
+                prod.putExtra("imagen", items.get(posicion).getImagen());
+                prod.putExtra("desc", items.get(posicion).getDescripcion());
+                prod.putExtra("precio", items.get(posicion).getPrecio());
+
                 startActivity(prod);
 
 

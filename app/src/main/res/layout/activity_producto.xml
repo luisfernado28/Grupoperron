@@ -8,9 +8,11 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/foto_decs"
         android:layout_width="248dp"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/img1"
-        android:layout_weight="0.34" />
+        android:layout_weight="0.34"
+        app:srcCompat="@drawable/img1" />
+
+
 </LinearLayout>
