@@ -2,6 +2,7 @@ package com.example.luisfernando.superhipermegaperron;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
@@ -23,7 +24,7 @@ public class Product_Activity extends AppCompatActivity {
         int ap= intent.getIntExtra("imagen",R.drawable.aspiradora);
 
         foto = (ImageView) findViewById(R.id.foto_decs);
-        foto.setImageDrawable(getDrawable(ap));
+        foto.setImageDrawable(ContextCompat.getDrawable(this, ap));
 
 
 
