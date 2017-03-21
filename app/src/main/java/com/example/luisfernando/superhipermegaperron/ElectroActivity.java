@@ -1,5 +1,7 @@
 package com.example.luisfernando.superhipermegaperron;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,14 +14,18 @@ import java.util.ArrayList;
 
 public class ElectroActivity extends AppCompatActivity {
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electro);
 
+        context=this;
+
         ListView lista=(ListView)findViewById(R.id.listview);
 
-        ArrayList<Item> items=new ArrayList<Item>();
+        final ArrayList<Item> items=new ArrayList<Item>();
         items.add(new Item(1, "Lavadora de carga frontal Samsung AddWash Ecobubble",
                 " 615,25 $us", R.drawable.lavadora));
         items.add(new Item(1, "Frigorífico combi Samsung RB37J5000SA/EF No Frost", " 700 $us", R.drawable.frigorifico));
@@ -40,6 +46,14 @@ public class ElectroActivity extends AppCompatActivity {
                                     long id) {
                 TextView titulo=(TextView)vista.findViewById(R.id.titulo);
                 Log.e("Item seleccionado", titulo.getText().toString());
+
+                Intent prod = new Intent(context,Product_Activity.class);
+                prod.putExtra("imagen", items.get(posicion).getImagen());
+                prod.putExtra("desc", items.get(posicion).getDescripcion());
+                prod.putExtra("precio", items.get(posicion).getPrecio());
+
+                startActivity(prod);
+
             }
         });
     }
