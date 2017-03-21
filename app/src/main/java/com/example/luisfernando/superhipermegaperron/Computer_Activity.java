@@ -1,5 +1,7 @@
 package com.example.luisfernando.superhipermegaperron;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,13 +19,18 @@ import java.util.ArrayList;
 public class Computer_Activity extends AppCompatActivity{
 
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_computer);
         ListView lista=(ListView)findViewById(R.id.listview1);
 
-        ArrayList<Item> items=new ArrayList<Item>();
+
+        context=this;
+
+        final ArrayList<Item> items=new ArrayList<Item>();
         items.add(new Item(1, "Apple iMac 1TB PCIe", " 2999.90 $us", R.drawable.mac));
         items.add(new Item(1, "Custom PC i7 7700k, 64GB DDR4 RAM", " 1139.99 $us", R.drawable.pc1));
         items.add(new Item(1, "Asus maximus Z270 Motherboard", "199.99  $us", R.drawable.asus));
@@ -40,6 +47,14 @@ public class Computer_Activity extends AppCompatActivity{
                                     long id) {
                 TextView titulo=(TextView)vista.findViewById(R.id.titulo);
                 Log.e("Item seleccionado", titulo.getText().toString());
+
+
+                Intent prod = new Intent(context,Product_Activity.class);
+                prod.putExtra("imagen", items.get(posicion).getImagen());
+                prod.putExtra("desc", items.get(posicion).getDescripcion());
+                prod.putExtra("precio", items.get(posicion).getPrecio());
+
+                startActivity(prod);
             }
         });
     }
