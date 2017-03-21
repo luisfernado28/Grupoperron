@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by Luis Fernando on 19/03/2017.
@@ -13,6 +14,10 @@ import android.widget.ImageView;
 public class Product_Activity extends AppCompatActivity {
 
     private ImageView foto;
+    private TextView descrip;
+    private TextView precio;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +31,15 @@ public class Product_Activity extends AppCompatActivity {
         foto = (ImageView) findViewById(R.id.foto_decs);
         foto.setImageDrawable(ContextCompat.getDrawable(this, ap));
 
-
-
         String descpripcion = intent.getStringExtra("desc");
-        String precio = intent.getStringExtra("precio");
+
+        descrip=(TextView)findViewById(R.id.descrip);
+        precio=(TextView)findViewById(R.id.precio);
+
+        descrip.setText(descpripcion);
+
+        String preciot = intent.getStringExtra("precio");
+
+        precio.setText(preciot);
     }
 }
