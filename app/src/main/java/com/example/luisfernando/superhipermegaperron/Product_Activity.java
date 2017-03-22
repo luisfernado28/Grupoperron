@@ -36,10 +36,10 @@ public class Product_Activity extends AppCompatActivity {
         descrip=(TextView)findViewById(R.id.descrip);
         precio=(TextView)findViewById(R.id.precio);
 
-        descrip.setText(descpripcion);
+        precio.setText(descpripcion);
 
         String preciot = intent.getStringExtra("precio");
 
-        precio.setText(preciot);
+        descrip.setText(preciot);
     }
 }

@@ -4,26 +4,36 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:layout_gravity="center_vertical|center_horizontal|center">
 
 
     <ImageView
         android:id="@+id/foto_decs"
         android:layout_width="248dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.34" />
+        android:layout_weight="0.34"
+        android:layout_marginLeft="25dp"
+        android:layout_gravity="center" />
 
     <TextView
         android:id="@+id/descrip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.12"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="30dp"
+        android:layout_marginRight="100dp"
+        android:gravity="top|center_horizontal" />
 
     <TextView
         android:id="@+id/precio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.12"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:gravity="center" />
 </LinearLayout>
