@@ -6,4 +6,14 @@
     <string name="lbl4">Home appliances</string>
     <string name="lbl5">Pc</string>
     <string name="title_activity_info">Info</string>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="cleanBtn">Clean</string>
+    <string name="sendBtn">Send</string>
+    <string name="sign_In">Sign In</string>
+    <string name="name">Name</string>
+    <string name="password_Again">Password Again</string>
+    <string name="E_Mail">E-Mail</string>
+    <string name="submitBtn">Submit</string>
+
 </resources>

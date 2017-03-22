@@ -22,26 +22,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtUsuario"
-            android:hint="User"
+            android:hint="@string/user"
             android:layout_marginTop="20dp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtLast_name"
-            android:hint="Name"
+            android:hint="@string/name"
             android:layout_marginTop="20dp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:id="@+id/txtPassword"
-            android:hint="Password"
+            android:hint="@string/password"
             android:layout_marginTop="20dp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="Password again"
+            android:hint="@string/password_Again"
             android:id="@+id/txtPassA"
             android:layout_marginTop="20dp"/>
         <EditText
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:id="@+id/txtEmail"
-            android:hint="E-mail"
+            android:hint="@string/E_Mail"
             android:layout_marginTop="20dp"/>
 
     </LinearLayout>
@@ -61,7 +61,7 @@
         android:gravity="center"
         android:layout_marginBottom="97dp"
         android:layout_alignParentBottom="true"
-        android:text="Submit"
+        android:text="@string/submitBtn"
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"/>
 
