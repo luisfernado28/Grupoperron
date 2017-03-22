@@ -60,7 +60,12 @@ public class MenuActivity extends AppCompatActivity{
         }
 
         Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-        PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+        PendingIntent pIntent = null;
+        try{
+            pIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+        }catch (Exception e){
+
+        }
 
         final Notification notification = new NotificationCompat.Builder(MenuActivity.this)
                 .setContentTitle("Eloy, ahora!")
