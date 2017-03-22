@@ -1,5 +1,7 @@
 package com.example.luisfernando.superhipermegaperron;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,14 +13,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class TelefonoActivity extends AppCompatActivity {
-
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_telefono);
         ListView lista=(ListView)findViewById(R.id.listview);
+        context=this;
 
-        ArrayList<Item> items=new ArrayList<Item>();
+        final ArrayList<Item> items=new ArrayList<Item>();
         items.add(new Item(1, "Samsung Galaxy S7 32GB "," 462.49 $us", R.drawable.galaxys7));
         items.add(new Item(1, "Samsung Galaxy S5  16GB  ", " 154.00$us", R.drawable.galaxys5));
         items.add(new Item(1, "Samsung J3  16GB ","140 $us", R.drawable.galaxyj3));
@@ -35,6 +38,12 @@ public class TelefonoActivity extends AppCompatActivity {
 
                 TextView titulo=(TextView)vista.findViewById(R.id.titulo);
                 Log.e("Item seleccionado", titulo.getText().toString());
+
+                Intent product = new Intent(context,Product_Activity.class);
+                product.putExtra("imagen", items.get(posicion).getImagen());
+                product.putExtra("desc", items.get(posicion).getDescripcion());
+                product.putExtra("precio", items.get(posicion).getPrecio());
+                startActivity(product);
             }
         });
     }

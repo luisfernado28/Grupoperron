@@ -1,5 +1,7 @@
 package com.example.luisfernando.superhipermegaperron;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,14 +13,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class JuegosActivity extends AppCompatActivity {
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juegos);
         ListView lista=(ListView)findViewById(R.id.listview);
+        context=this;
 
-        ArrayList<Item> items=new ArrayList<Item>();
+        final ArrayList<Item> items=new ArrayList<Item>();
         items.add(new Item(1, "Sony PlayStation 4 500GB", " 267.90 $us", R.drawable.ps4));
         items.add(new Item(1, "Sony PlayStation 4 Pro 1TB", " 439.99 $us", R.drawable.ps4pro));
         items.add(new Item(1, "Overwatch - Origins Edition - PlayStation 4", "49.99  $us", R.drawable.overwatch));
@@ -37,6 +41,13 @@ public class JuegosActivity extends AppCompatActivity {
                                     long id) {
                 TextView titulo=(TextView)vista.findViewById(R.id.titulo);
                 Log.e("Item seleccionado", titulo.getText().toString());
+
+                Intent product = new Intent(context,Product_Activity.class);
+                product.putExtra("imagen", items.get(posicion).getImagen());
+                product.putExtra("desc", items.get(posicion).getDescripcion());
+                product.putExtra("precio", items.get(posicion).getPrecio());
+
+                startActivity(product);
             }
         });
     }
