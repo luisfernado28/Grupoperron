@@ -53,6 +53,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
+
+        <Button
+            android:text="Limpiar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/btnlimpiar"
+            android:layout_marginLeft="15sp"
+            android:layout_marginRight="15sp"/>
         <Button
             android:text="Enviar"
             android:layout_width="0dp"
@@ -62,14 +71,6 @@
             android:layout_marginLeft="15sp"
             android:layout_marginRight="15sp"
             />
-        <Button
-            android:text="Limpiar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:id="@+id/btnlimpiar"
-            android:layout_marginLeft="15sp"
-            android:layout_marginRight="15sp"/>
     </LinearLayout>
 
 
