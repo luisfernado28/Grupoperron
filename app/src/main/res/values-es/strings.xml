@@ -15,4 +15,5 @@
     <string name="password_Again">Repetir Contraseña</string>
     <string name="E_Mail">Correo Electronico</string>
     <string name="submitBtn">Enviar</string>
+    <string name="wish_List">Lista de Deseos</string>
 </resources>
