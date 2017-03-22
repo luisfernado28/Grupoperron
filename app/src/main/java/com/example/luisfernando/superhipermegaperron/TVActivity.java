@@ -28,7 +28,7 @@ public class TVActivity extends AppCompatActivity {
 
         ListView lista=(ListView)findViewById(R.id.listview);
 
-        final ArrayList<Item> items=new ArrayList<Item>();
+        final ArrayList<Item> items=new ArrayList<>();
         items.add(new Item(1, "Samsung Curva 48 plg Ultra HD Smart Led TV", " 2241,35 $us", R.drawable.img1));
         items.add(new Item(2, "Samsung 65 plg Full HD Smart Led HDTV", " 1493,85 $us", R.drawable.img2));
         items.add(new Item(3, "Samsung 55 plg 4k Ultra HD Smart Led TV", "916,55 $us", R.drawable.img3));

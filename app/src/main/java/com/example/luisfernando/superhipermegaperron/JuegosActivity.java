@@ -22,7 +22,7 @@ public class JuegosActivity extends AppCompatActivity {
         ListView lista=(ListView)findViewById(R.id.listview);
         context=this;
 
-        final ArrayList<Item> items=new ArrayList<Item>();
+        final ArrayList<Item> items=new ArrayList<>();
         items.add(new Item(1, "Sony PlayStation 4 500GB", " 267.90 $us", R.drawable.ps4));
         items.add(new Item(1, "Sony PlayStation 4 Pro 1TB", " 439.99 $us", R.drawable.ps4pro));
         items.add(new Item(1, "Overwatch - Origins Edition - PlayStation 4", "49.99  $us", R.drawable.overwatch));

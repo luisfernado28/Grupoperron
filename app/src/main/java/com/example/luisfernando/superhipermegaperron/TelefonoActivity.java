@@ -21,7 +21,7 @@ public class TelefonoActivity extends AppCompatActivity {
         ListView lista=(ListView)findViewById(R.id.listview);
         context=this;
 
-        final ArrayList<Item> items=new ArrayList<Item>();
+        final ArrayList<Item> items=new ArrayList<>();
         items.add(new Item(1, "Samsung Galaxy S7 32GB "," 462.49 $us", R.drawable.galaxys7));
         items.add(new Item(1, "Samsung Galaxy S5  16GB  ", " 154.00$us", R.drawable.galaxys5));
         items.add(new Item(1, "Samsung J3  16GB ","140 $us", R.drawable.galaxyj3));
