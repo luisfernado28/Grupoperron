@@ -22,18 +22,25 @@
        android:layout_weight="0.5">
 
        <TextView
-           android:id="@+id/precio"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_weight="0.12"
-           android:text="TextView" />
-       <TextView
 
            android:id="@+id/descrip"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_weight="0.12"
-           android:text="TextView" />
+           android:text="TextView"
+           android:textSize="40dp"
+           android:gravity="center"/>
+
+       <TextView
+           android:id="@+id/precio"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="0.12"
+           android:text="TextView"
+           android:textSize="30dp"
+           android:gravity="center"/>
+
+
 
    </LinearLayout>
 </LinearLayout>
