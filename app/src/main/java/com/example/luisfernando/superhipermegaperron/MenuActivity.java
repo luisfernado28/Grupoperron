@@ -168,6 +168,7 @@ public class MenuActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent wishlist = new Intent(context, Wish_List.class);
+                wishlist.putExtra("activeUser", activeUser[0]);
                 startActivity(wishlist);
             }
         });
