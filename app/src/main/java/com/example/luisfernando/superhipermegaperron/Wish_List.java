@@ -33,6 +33,7 @@ public class Wish_List extends AppCompatActivity {
         Cursor cursor = db.rawQuery("SELECT * FROM wish" + activeUser, null);
         if (cursor.moveToFirst()) {
             int cont = 1;
+
             while (cursor.isAfterLast() == false){
                 items.add(new Item(cont, cursor.getString(3),
                         cursor.getString(1), cursor.getInt(2)));
