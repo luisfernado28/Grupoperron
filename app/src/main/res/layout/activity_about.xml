@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_about"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.luisfernando.superhipermegaperron.AboutActivity">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo1"
+        android:id="@+id/imageView2"
+         />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:text="Contactos:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView"
+                android:textSize="30dp"
+                android:paddingTop="10dp"
+                 />
+
+            <TextView
+                android:text="Luis Choque"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                android:textSize="20dp"
+                android:paddingTop="10dp"/>
+
+            <TextView
+                android:text="luisfer_2810@outlook.com"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:textSize="15dp"
+                android:paddingTop="8dp"/>
+
+            <TextView
+                android:text="705-77763"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView4"
+                android:textSize="15dp"
+                android:paddingTop="8dp"/>
+
+            <TextView
+                android:text="Andres Duarte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView5"
+                android:textSize="20dp"
+                android:paddingTop="15dp"/>
+
+            <TextView
+                android:text="andresduarter13@gmail.com"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView6"
+                android:textSize="15dp"
+                android:paddingTop="8dp"/>
+
+            <TextView
+                android:text="720-27677"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView7"
+                android:textSize="15dp"
+                android:paddingTop="8dp"/>
+
+            <TextView
+                android:text="Gabriel Jarmusz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView8"
+                android:textSize="20dp"
+                android:paddingTop="15dp"/>
+
+            <TextView
+                android:text="gabojarmusz@gmail.com"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView9"
+                android:textSize="15dp"
+                android:paddingTop="8dp"/>
+
+            <TextView
+                android:text="752-16003"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView10"
+                android:textSize="15dp"
+                android:paddingTop="8dp"/>
+
+            <TextView
+                android:text="Sergio Marzana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView11"
+                android:textSize="20dp"
+                android:paddingTop="10dp"/>
+
+            <TextView
+                android:text="sergiomarzana1@gmail.com"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView12"
+                android:textSize="15dp"
+                android:paddingTop="8dp"/>
+
+            <TextView
+                android:text="697-75771"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView13"
+                android:textSize="15dp"
+                android:paddingTop="8dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

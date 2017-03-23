@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int VERSION = 1;
     private User user;
     private String activeUser[] = new String[2];
+    private Button btnAbout;
 
     private Context context;
 
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         btnEnviar=(Button)findViewById(R.id.btnEnviar);
         btnLimpiar=(Button)findViewById(R.id.btnlimpiar);
         btnRegistarse=(Button)findViewById(R.id.btnRegistrarse);
+        btnAbout=(Button)findViewById(R.id.btnAbout);
 
         //Función botón registrarse
         btnRegistarse.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +96,17 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        //Funcion about
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a=new Intent(context,AboutActivity.class);
+                startActivity(a);
+                finish();
+            }
+        });
+
 
         //Función botón Enviar y verificación
         btnEnviar.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +150,10 @@ public class MainActivity extends AppCompatActivity {
                 txtPassword.setText("");
             }
         }));
+
+
     }
+
 
     //FACTORIZACIÓN DE CÓDIGO
     public void oneTimeLogIn(String name, String pass){
@@ -157,4 +174,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(menu);
         finish();
     }
+
 }
