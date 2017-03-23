@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private BaseDatos baseDatos;
 
-    public static final int RC_SIGN_IN = 100;
 
 
     private Context context;
@@ -59,23 +58,6 @@ public class MainActivity extends AppCompatActivity {
         ContentValues values = new ContentValues();
 
         //Se verifica el one time LOGIN
-        /*firebaseAuth = FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() != null)
-        {
-            FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-            iniciarAcciones();
-        } else {
-            startActivityForResult(
-                    AuthUI.getInstance()
-                            .createSignInIntentBuilder()
-                            .setLogo(R.drawable.icon)
-                            .setProviders(
-                                    AuthUI.FACEBOOK_PROVIDER,
-                                    AuthUI.GOOGLE_PROVIDER,
-                                    AuthUI.EMAIL_PROVIDER)
-                            .setTheme(R.style.tema)
-                            .build(), RC_SIGN_IN);
-        }*/
 
         SharedPreferences prefs =
                 getSharedPreferences("ActiveUser", Context.MODE_PRIVATE);
@@ -119,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent a=new Intent(context,Registrarse.class);
                 startActivity(a);
-                finish();
             }
         });
 
@@ -129,7 +110,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent a=new Intent(context,AboutActivity.class);
                 startActivity(a);
-                finish();
             }
         });
 
