@@ -68,6 +68,8 @@ public class Wish_List extends AppCompatActivity {
                 Dialogo.setMessage("Sera permanente");
                 Dialogo.setIcon(android.R.drawable.sym_def_app_icon);
                 Dialogo.setPositiveButton("Si",
+
+                        //esto hizo luis choque
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 db = baseDatos.getWritableDatabase();
