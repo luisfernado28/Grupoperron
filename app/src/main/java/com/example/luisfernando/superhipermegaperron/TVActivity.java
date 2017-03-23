@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -41,7 +43,8 @@ public class TVActivity extends AppCompatActivity {
         items.add(new Item(1, "Samsung 40 plg HD Led TV", " 315,12 $us", R.drawable.img6));
 
 
-        AdaptadorItem adaptador=new AdaptadorItem(TVActivity.this, items);
+        final AdaptadorItem adaptador=new AdaptadorItem(TVActivity.this, items);
+
 
         lista.setAdapter(adaptador);
 
@@ -64,13 +67,20 @@ public class TVActivity extends AppCompatActivity {
         });
 
         searchTxt = (EditText) findViewById(R.id.searchTxt);
-        searchTxt.setOnClickListener(new View.OnClickListener() {
+        //Agrego el filtro
+        searchTxt.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //Aplico el filtro
+                adaptador.getFilter().filter(s.toString());
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
             }
         });
-
 
     }
 }
