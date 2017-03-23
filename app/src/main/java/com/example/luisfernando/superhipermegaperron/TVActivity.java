@@ -24,6 +24,7 @@ public class TVActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tv);
 
         context=this;
+        final Intent intent = getIntent();
 
 
         ListView lista=(ListView)findViewById(R.id.listview);
@@ -51,6 +52,7 @@ public class TVActivity extends AppCompatActivity {
                 prod.putExtra("imagen", items.get(posicion).getImagen());
                 prod.putExtra("desc", items.get(posicion).getDescripcion());
                 prod.putExtra("precio", items.get(posicion).getPrecio());
+                prod.putExtra("activeUser", intent.getStringExtra("activeUser"));
 
                 startActivity(prod);
 

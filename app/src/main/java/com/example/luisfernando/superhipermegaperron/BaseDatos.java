@@ -10,6 +10,9 @@ import android.util.Log;
  */
 
 public class BaseDatos extends SQLiteOpenHelper{
+
+
+
     public static final String DB_NAME = "user_database.db";
 
     //Versión de la base de datos
@@ -18,10 +21,13 @@ public class BaseDatos extends SQLiteOpenHelper{
         Log.e("DB","Constructor");
     }
 
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table users (id integer primary key autoincrement not null, user varchar, name double, password varchar, email varchar);");
-        Log.e("DB","Create");
+        db.execSQL("create table users (id integer primary key autoincrement not null, user varchar, name varchar, password varchar, email varchar);");
+        Log.e("DB","Create, local users");
+
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){

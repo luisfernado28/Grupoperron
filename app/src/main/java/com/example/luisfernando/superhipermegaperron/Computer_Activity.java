@@ -26,6 +26,7 @@ public class Computer_Activity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_computer);
         ListView lista=(ListView)findViewById(R.id.listview1);
+        final Intent intent = getIntent();
 
 
         context=this;
@@ -53,6 +54,7 @@ public class Computer_Activity extends AppCompatActivity{
                 prod.putExtra("imagen", items.get(posicion).getImagen());
                 prod.putExtra("desc", items.get(posicion).getDescripcion());
                 prod.putExtra("precio", items.get(posicion).getPrecio());
+                prod.putExtra("activeUser", intent.getStringExtra("activeUser"));
 
                 startActivity(prod);
             }
