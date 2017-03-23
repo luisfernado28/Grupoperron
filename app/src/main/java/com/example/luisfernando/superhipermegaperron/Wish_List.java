@@ -24,6 +24,7 @@ public class Wish_List extends AppCompatActivity {
     private BaseDatosWish baseDatos;
     private SQLiteDatabase db;
     public static final int VERSION = 1;
+    private String activeUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,31 +32,32 @@ public class Wish_List extends AppCompatActivity {
         setContentView(R.layout.activity_wish__list);
         context=this;
 
-        ListView lista=(ListView)findViewById(R.id.listviewwish);
+        final ListView lista=(ListView)findViewById(R.id.listviewwish);
         final ArrayList<Item> items=new ArrayList<Item>();
-        Intent intent = getIntent();
-        String activeUser = intent.getStringExtra("activeUser");
+        final Intent intent = getIntent();
+        activeUser = intent.getStringExtra("activeUser");
         baseDatos = new BaseDatosWish(context, VERSION, activeUser);
         db = baseDatos.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM wish" + activeUser, null);
         if (cursor.moveToFirst()) {
-            int cont = 1;
+
 
             while (cursor.isAfterLast() == false){
-                items.add(new Item(cont, cursor.getString(3),
+                items.add(new Item(cursor.getInt(0), cursor.getString(3),
                         cursor.getString(1), cursor.getInt(2)));
                 cursor.moveToNext();
-                cont++;
+
             }
 
         }
 
-        AdaptadorItem adaptador=new AdaptadorItem(Wish_List.this, items);
+        final AdaptadorItem adaptador=new AdaptadorItem(Wish_List.this, items);
         lista.setAdapter(adaptador);
 
+
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> array, View vista, int posicion,
-                                    long id) {
+            public void onItemClick(AdapterView<?> array, View vista, final int posicion,
+                                    final long id) {
 
                 Log.e("Item seleccionado"," "+ posicion);
 
@@ -65,21 +67,15 @@ public class Wish_List extends AppCompatActivity {
                 Dialogo.setTitle("Esta seguro de eliminar este objeto de sulista de articulos?");
                 Dialogo.setMessage("Sera permanente");
                 Dialogo.setIcon(android.R.drawable.sym_def_app_icon);
-
                 Dialogo.setPositiveButton("Si",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                //Intent logOut = new Intent(context,MainActivity.class);
-                                //notificationManager.cancelAll();
-                                /*SharedPreferences prefs =
-                                        getSharedPreferences("ActiveUser", Context.MODE_PRIVATE);
-                                String[] activeUser = {"",""};
-                                SharedPreferences.Editor editor = prefs.edit();
-                                editor.putString("User", activeUser[0]);
-                                editor.putString("Password", activeUser[1]);
-                                editor.commit();*/
-                                //startActivity(logOut);
-                                //finish();
+                                db = baseDatos.getWritableDatabase();
+                                db.delete("wish"+activeUser, "id="+id,null);
+                                Log.e("la cosa del id", ""+posicion);
+                                adaptador.notifyDataSetChanged();
+                                recreate();
+
                             }
                         });
 

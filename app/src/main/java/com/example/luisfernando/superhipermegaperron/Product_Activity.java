@@ -73,7 +73,6 @@ public class Product_Activity extends AppCompatActivity {
                 values.put("image", ap);
                 values.put("desc", descpripcion);
                 db.insert("wish" + activeUser, null, values);
-                db.close();
 
 
                 Intent wish = new Intent(context, Wish_List.class);
