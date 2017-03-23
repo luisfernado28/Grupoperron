@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int VERSION = 1;
     private User user;
     private String activeUser[] = new String[2];
-    private Button btnAbout;
+    private TextView txtAbout;
     private FirebaseAuth firebaseAuth;
     private BaseDatos baseDatos;
 
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         btnEnviar=(Button)findViewById(R.id.btnEnviar);
         btnLimpiar=(Button)findViewById(R.id.btnlimpiar);
         btnRegistarse=(Button)findViewById(R.id.btnRegistrarse);
-        btnAbout=(Button)findViewById(R.id.btnAbout);
+        txtAbout=(TextView) findViewById(R.id.txtAbout);
 
         //Función botón registrarse
         btnRegistarse.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Funcion about
-        btnAbout.setOnClickListener(new View.OnClickListener() {
+        txtAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent a=new Intent(context,AboutActivity.class);
