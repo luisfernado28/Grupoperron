@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lbl1">Televisions</string>
+    <string name="lbl1">TV</string>
     <string name="lbl2">Phones</string>
     <string name="lbl3">Games</string>
     <string name="lbl4">Home appliances</string>
@@ -16,5 +16,6 @@
     <string name="E_Mail">E-Mail</string>
     <string name="submitBtn">Submit</string>
     <string name="wish_List">Wish List</string>
+    <string name="searchTxt">Search</string>
 
 </resources>
