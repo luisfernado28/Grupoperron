@@ -37,4 +37,13 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:gravity="center" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="117dp"
+        android:layout_height="68dp"
+        android:id="@+id/btnadd"
+        android:gravity="center"
+        android:layout_gravity="bottom|center"
+        android:layout_marginTop="50dp" />
 </LinearLayout>

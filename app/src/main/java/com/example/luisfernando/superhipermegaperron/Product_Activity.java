@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ public class Product_Activity extends AppCompatActivity {
     private ImageView foto;
     private TextView descrip;
     private TextView precio;
+    private Button wish;
 
 
 
@@ -35,11 +38,19 @@ public class Product_Activity extends AppCompatActivity {
 
         descrip=(TextView)findViewById(R.id.descrip);
         precio=(TextView)findViewById(R.id.precio);
+        wish=(Button)findViewById(R.id.btnadd);
 
         precio.setText(descpripcion);
 
         String preciot = intent.getStringExtra("precio");
 
         descrip.setText(preciot);
+
+        wish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }
