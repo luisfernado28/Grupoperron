@@ -20,6 +20,7 @@ public class ElectroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_electro);
+        final Intent intent = getIntent();
 
         context=this;
 
@@ -51,6 +52,7 @@ public class ElectroActivity extends AppCompatActivity {
                 prod.putExtra("imagen", items.get(posicion).getImagen());
                 prod.putExtra("desc", items.get(posicion).getDescripcion());
                 prod.putExtra("precio", items.get(posicion).getPrecio());
+                prod.putExtra("activeUser", intent.getStringExtra("activeUser"));
 
                 startActivity(prod);
 

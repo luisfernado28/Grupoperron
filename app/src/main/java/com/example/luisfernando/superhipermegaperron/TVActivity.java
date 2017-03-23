@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,6 +20,7 @@ public class TVActivity extends AppCompatActivity {
 
 
     private Context context;
+    private EditText searchTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +28,11 @@ public class TVActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tv);
 
         context=this;
+        final Intent intent = getIntent();
 
 
         ListView lista=(ListView)findViewById(R.id.listview);
+
 
         final ArrayList<Item> items=new ArrayList<>();
         items.add(new Item(1, "Samsung Curva 48 plg Ultra HD Smart Led TV", " 2241,35 $us", R.drawable.img1));
@@ -37,7 +43,8 @@ public class TVActivity extends AppCompatActivity {
         items.add(new Item(1, "Samsung 40 plg HD Led TV", " 315,12 $us", R.drawable.img6));
 
 
-        AdaptadorItem adaptador=new AdaptadorItem(TVActivity.this, items);
+        final AdaptadorItem adaptador=new AdaptadorItem(TVActivity.this, items);
+
 
         lista.setAdapter(adaptador);
 
@@ -51,6 +58,7 @@ public class TVActivity extends AppCompatActivity {
                 prod.putExtra("imagen", items.get(posicion).getImagen());
                 prod.putExtra("desc", items.get(posicion).getDescripcion());
                 prod.putExtra("precio", items.get(posicion).getPrecio());
+                prod.putExtra("activeUser", intent.getStringExtra("activeUser"));
 
                 startActivity(prod);
 
@@ -58,6 +66,21 @@ public class TVActivity extends AppCompatActivity {
             }
         });
 
+        searchTxt = (EditText) findViewById(R.id.searchTxt);
+        //Agrego el filtro
+        searchTxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //Aplico el filtro
+                adaptador.getFilter().filter(s.toString());
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
 
     }
 }

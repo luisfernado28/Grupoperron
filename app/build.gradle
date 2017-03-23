@@ -29,6 +29,14 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     testCompile 'junit:junit:4.12'
+    compile "com.firebaseui:firebase-ui:$firebaseui_version"
+
+    compile "com.google.firebase:firebase-database:$firebase_version"
+    compile "com.google.firebase:firebase-storage:$firebase_version"
+}
+buildscript {
+    ext.firebase_version = '10.2.0'
+    ext.firebaseui_version = '1.2.0'
 }
 
 

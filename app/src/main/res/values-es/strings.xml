@@ -16,4 +16,5 @@
     <string name="E_Mail">Correo Electronico</string>
     <string name="submitBtn">Enviar</string>
     <string name="wish_List">Lista de Deseos</string>
+    <string name="searchTxt">Buscar</string>
 </resources>

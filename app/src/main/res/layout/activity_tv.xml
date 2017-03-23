@@ -9,11 +9,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.luisfernando.superhipermegaperron.TVActivity">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchTxt"
+        android:hint="@string/searchTxt"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
         android:id="@+id/listview" />
+</LinearLayout>
+
 </RelativeLayout>

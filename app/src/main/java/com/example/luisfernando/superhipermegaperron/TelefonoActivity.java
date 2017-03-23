@@ -20,6 +20,7 @@ public class TelefonoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_telefono);
         ListView lista=(ListView)findViewById(R.id.listview);
         context=this;
+        final Intent intent = getIntent();
 
         final ArrayList<Item> items=new ArrayList<>();
         items.add(new Item(1, "Samsung Galaxy S7 32GB "," 462.49 $us", R.drawable.galaxys7));
@@ -43,6 +44,7 @@ public class TelefonoActivity extends AppCompatActivity {
                 product.putExtra("imagen", items.get(posicion).getImagen());
                 product.putExtra("desc", items.get(posicion).getDescripcion());
                 product.putExtra("precio", items.get(posicion).getPrecio());
+                product.putExtra("activeUser", intent.getStringExtra("activeUser"));
                 startActivity(product);
             }
         });

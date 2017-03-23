@@ -14,9 +14,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -34,23 +36,43 @@ public class MainActivity extends AppCompatActivity {
     public static final int VERSION = 1;
     private User user;
     private String activeUser[] = new String[2];
-    private Button btnAbout;
+    private FirebaseAuth firebaseAuth;
+    private BaseDatos baseDatos;
+
+    public static final int RC_SIGN_IN = 100;
 
     private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context=this;
 
         //Se instancia la base de Datos
-        final BaseDatos baseDatos = new BaseDatos(context,VERSION);
+        baseDatos = new BaseDatos(context,VERSION);
         db = baseDatos.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         //Se verifica el one time LOGIN
+        /*firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() != null)
+        {
+            FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+            iniciarAcciones();
+        } else {
+            startActivityForResult(
+                    AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setLogo(R.drawable.icon)
+                            .setProviders(
+                                    AuthUI.FACEBOOK_PROVIDER,
+                                    AuthUI.GOOGLE_PROVIDER,
+                                    AuthUI.EMAIL_PROVIDER)
+                            .setTheme(R.style.tema)
+                            .build(), RC_SIGN_IN);
+        }*/
+
         SharedPreferences prefs =
                 getSharedPreferences("ActiveUser", Context.MODE_PRIVATE);
         activeUser[0] = prefs.getString("User", "");
@@ -85,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
         btnEnviar=(Button)findViewById(R.id.btnEnviar);
         btnLimpiar=(Button)findViewById(R.id.btnlimpiar);
         btnRegistarse=(Button)findViewById(R.id.btnRegistrarse);
-        btnAbout=(Button)findViewById(R.id.btnAbout);
 
         //Función botón registrarse
         btnRegistarse.setOnClickListener(new View.OnClickListener() {
@@ -96,17 +117,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        //Funcion about
-        btnAbout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent a=new Intent(context,AboutActivity.class);
-                startActivity(a);
-                finish();
-            }
-        });
-
 
         //Función botón Enviar y verificación
         btnEnviar.setOnClickListener(new View.OnClickListener() {
@@ -150,10 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 txtPassword.setText("");
             }
         }));
-
-
     }
-
 
     //FACTORIZACIÓN DE CÓDIGO
     public void oneTimeLogIn(String name, String pass){
