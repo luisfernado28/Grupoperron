@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +17,7 @@ import java.util.ArrayList;
 
 public class JuegosActivity extends AppCompatActivity {
     private Context context;
+    private EditText searchTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,7 @@ public class JuegosActivity extends AppCompatActivity {
 
 
 
-        AdaptadorItem adaptador=new AdaptadorItem(JuegosActivity.this, items);
+        final AdaptadorItem adaptador=new AdaptadorItem(JuegosActivity.this, items);
 
         lista.setAdapter(adaptador);
 
@@ -50,6 +54,22 @@ public class JuegosActivity extends AppCompatActivity {
                 product.putExtra("activeUser", intent.getStringExtra("activeUser"));
 
                 startActivity(product);
+            }
+        });
+
+        searchTxt = (EditText) findViewById(R.id.searchTxt);
+        //Agrego el filtro
+        searchTxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //Aplico el filtro
+                adaptador.getFilter().filter(s.toString());
+            }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
             }
         });
     }
