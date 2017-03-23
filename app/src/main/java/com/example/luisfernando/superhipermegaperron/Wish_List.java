@@ -44,5 +44,6 @@ public class Wish_List extends AppCompatActivity {
 
         AdaptadorItem adaptador=new AdaptadorItem(Wish_List.this, items);
         lista.setAdapter(adaptador);
+
     }
 }
