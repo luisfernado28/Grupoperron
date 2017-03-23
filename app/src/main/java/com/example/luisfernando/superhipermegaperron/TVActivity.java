@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class TVActivity extends AppCompatActivity {
 
 
     private Context context;
+    private EditText searchTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class TVActivity extends AppCompatActivity {
 
 
         ListView lista=(ListView)findViewById(R.id.listview);
+
 
         final ArrayList<Item> items=new ArrayList<>();
         items.add(new Item(1, "Samsung Curva 48 plg Ultra HD Smart Led TV", " 2241,35 $us", R.drawable.img1));
@@ -56,6 +59,14 @@ public class TVActivity extends AppCompatActivity {
 
                 startActivity(prod);
 
+
+            }
+        });
+
+        searchTxt = (EditText) findViewById(R.id.searchTxt);
+        searchTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
