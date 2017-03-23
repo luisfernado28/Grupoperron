@@ -16,8 +16,9 @@ import java.util.ArrayList;
  */
 
 public class AdaptadorItem extends BaseAdapter{
-    protected Activity activity;
-    protected ArrayList<Item> items;
+
+    private Activity activity;
+    private ArrayList<Item> items;
 
     public AdaptadorItem(Activity activity, ArrayList<Item> items)
     {

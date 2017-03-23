@@ -16,7 +16,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#FFFFFF">
+    android:background="@color/colorPrimaryDark">
     <ImageView
         android:layout_width="400px"
         android:layout_height="400px"
@@ -33,7 +33,7 @@
             android:orientation="vertical"
             android:gravity="center">
             <TextView
-                android:text="Usuario"
+                android:text="@string/user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/lblUsuario"
@@ -54,7 +54,7 @@
             android:orientation="vertical"
             android:gravity="center">
         <TextView
-            android:text="Password"
+            android:text="@string/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/lblPassword"
@@ -72,8 +72,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
+
         <Button
-            android:text="Enviar"
+            android:text="@string/cleanBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:id="@+id/btnlimpiar"
+            android:layout_marginLeft="35sp"
+            android:layout_marginRight="35sp"/>
+
+        <Button
+            android:text="@string/sendBtn"
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
@@ -81,19 +91,11 @@
             android:layout_marginLeft="35sp"
             android:layout_marginRight="35sp"
             />
-        <Button
-            android:text="Limpiar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:id="@+id/btnlimpiar"
-            android:layout_marginLeft="35sp"
-            android:layout_marginRight="35sp"/>
     </LinearLayout>
 
 
     <Button
-        android:text="Registrate"
+        android:text="@string/sign_In"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnRegistrarse"

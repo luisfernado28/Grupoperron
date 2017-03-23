@@ -20,14 +20,14 @@
     android:weightSum="1">
 
     <ImageView
-        android:layout_width="223dp"
-        android:layout_height="235dp"
+        android:layout_width="600px"
+        android:layout_height="0px"
         android:src="@drawable/logo1"
         android:id="@+id/imageView"
         android:layout_weight="0.59" />
 
     <TextView
-        android:text="Usuario"
+        android:text="@string/user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lblUsuario"
@@ -44,7 +44,7 @@
         />
 
     <TextView
-        android:text="Password"
+        android:text="@string/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lblPassword"
@@ -66,7 +66,7 @@
         android:gravity="center">
 
         <Button
-            android:text="Limpiar"
+            android:text="@string/cleanBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
@@ -74,7 +74,7 @@
             android:layout_marginLeft="15sp"
             android:layout_marginRight="15sp"/>
         <Button
-            android:text="Enviar"
+            android:text="@string/sendBtn"
             android:layout_width="0dp"
             android:layout_weight="0.5"
             android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
 
 
     <Button
-        android:text="Registrate"
+        android:text="@string/sign_In"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnRegistrarse"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="@color/colorPrimaryDark"
+    android:background="#9490A5"
     android:layout_gravity="center_vertical|center_horizontal|center">
 
 
@@ -14,7 +14,6 @@
         android:layout_width="248dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.34"
-        android:layout_marginLeft="25dp"
         android:layout_gravity="center"
         />
 
