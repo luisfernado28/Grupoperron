@@ -69,17 +69,6 @@ public class Wish_List extends AppCompatActivity {
                 Dialogo.setPositiveButton("Si",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                //Intent logOut = new Intent(context,MainActivity.class);
-                                //notificationManager.cancelAll();
-                                /*SharedPreferences prefs =
-                                        getSharedPreferences("ActiveUser", Context.MODE_PRIVATE);
-                                String[] activeUser = {"",""};
-                                SharedPreferences.Editor editor = prefs.edit();
-                                editor.putString("User", activeUser[0]);
-                                editor.putString("Password", activeUser[1]);
-                                editor.commit();*/
-                                //startActivity(logOut);
-                                //finish();
                             }
                         });
 
