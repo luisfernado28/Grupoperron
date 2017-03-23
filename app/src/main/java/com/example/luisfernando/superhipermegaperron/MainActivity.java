@@ -13,7 +13,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
@@ -36,10 +38,12 @@ public class MainActivity extends AppCompatActivity {
     public static final int VERSION = 1;
     private User user;
     private String activeUser[] = new String[2];
+    private TextView txtAbout;
     private FirebaseAuth firebaseAuth;
     private BaseDatos baseDatos;
 
     public static final int RC_SIGN_IN = 100;
+
 
     private Context context;
 
@@ -107,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         btnEnviar=(Button)findViewById(R.id.btnEnviar);
         btnLimpiar=(Button)findViewById(R.id.btnlimpiar);
         btnRegistarse=(Button)findViewById(R.id.btnRegistrarse);
+        txtAbout=(TextView) findViewById(R.id.txtAbout);
 
         //Función botón registrarse
         btnRegistarse.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +122,17 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        //Funcion about
+        txtAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a=new Intent(context,AboutActivity.class);
+                startActivity(a);
+                finish();
+            }
+        });
+
 
         //Función botón Enviar y verificación
         btnEnviar.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +176,10 @@ public class MainActivity extends AppCompatActivity {
                 txtPassword.setText("");
             }
         }));
+
+
     }
+
 
     //FACTORIZACIÓN DE CÓDIGO
     public void oneTimeLogIn(String name, String pass){

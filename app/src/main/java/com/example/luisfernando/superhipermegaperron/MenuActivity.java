@@ -71,16 +71,8 @@ public class MenuActivity extends AppCompatActivity{
             pIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
         }catch (Exception e){
 
-        }/*
-        final Notification notification = new NotificationCompat.Builder(MenuActivity.this)
-                .setContentTitle("Eloy, ahora!")
-                .setContentText("Bienvenido")
-                .setSmallIcon(R.drawable.notification)
-                .setContentIntent(pIntent)
-                .setDefaults(Notification.DEFAULT_SOUND)
-                .build();*/
+        }
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        //notificationManager.notify(0, notification);
 
 
         TV_BUTTON.setOnClickListener(new View.OnClickListener() {
