@@ -4,7 +4,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9490A5"
     android:weightSum="1">
 
 <LinearLayout
@@ -16,7 +15,11 @@
         android:id="@+id/foto_decs"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="0.5" />
+        android:layout_weight="0.5"
+        android:background="@drawable/fondo_productos"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        />
    <LinearLayout
        android:layout_width="0dp"
        android:layout_height="match_parent"
@@ -40,14 +43,16 @@
            android:layout_weight="0.12"
            android:text="TextView"
            android:textSize="30dp"
+           android:textColor="#ff0000"
            android:gravity="center"/>
 
        <Button
-           android:text="Button"
+           android:text="@string/wish_List"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:id="@+id/btnadd"
-           android:layout_weight="0.12" />
+           android:layout_weight="0.12"
+           android:layout_margin="60dp"/>
 
 
    </LinearLayout>
