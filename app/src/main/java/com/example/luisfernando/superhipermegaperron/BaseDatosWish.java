@@ -11,11 +11,11 @@ public class BaseDatosWish extends SQLiteOpenHelper{
 
     private String userName;
 
-    public static final String DB_NAME = "wish_database.db";
+    public static String DB_NAME = "wish_database_";
 
     //Versión de la base de datos
     public BaseDatosWish(Context context, int VERSION, String user){
-        super(context, DB_NAME, null, VERSION);
+        super(context, DB_NAME+ ""+ user, null, VERSION);
         this.userName = user;
         Log.e("DB","Constructor wishlist");
     }

@@ -25,6 +25,8 @@ public class Wish_List extends AppCompatActivity {
     private SQLiteDatabase db;
     public static final int VERSION = 1;
     private String activeUser;
+    private int cotiz;
+    private TextView cotiza;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +41,38 @@ public class Wish_List extends AppCompatActivity {
         baseDatos = new BaseDatosWish(context, VERSION, activeUser);
         db = baseDatos.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM wish" + activeUser, null);
+        cotiza = (TextView)findViewById(R.id.cotiza);
+
         if (cursor.moveToFirst()) {
 
-
             while (cursor.isAfterLast() == false){
-                items.add(new Item(cursor.getInt(0), cursor.getString(3),
-                        cursor.getString(1), cursor.getInt(2)));
+                items.add(new Item(cursor.getInt(0), cursor.getString(1),
+                        cursor.getString(3), cursor.getInt(2)));
+                String prcz = cursor.getString(3);
+                String prey = new String();
+                for(char c: prcz.toCharArray()){
+                    if((c == '0')||(c == '1')||(c == '2')||(c == '3')||(c == '4')
+                            ||(c == '5')||(c == '6')||(c == '7')||(c == '8')||(c == '9')){
+
+                        prey = prey + c;
+                    }
+                    if(c=='.'){
+                        break;
+                    }
+                }
+                cotiz = cotiz + Integer.parseInt(prey)+1;
+
                 cursor.moveToNext();
+
 
             }
 
         }
 
+        Log.e("precio", ""+cotiz);
         final AdaptadorItem adaptador=new AdaptadorItem(Wish_List.this, items);
         lista.setAdapter(adaptador);
-
+        cotiza.setText("Total: "+cotiz+" $us");
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> array, View vista, final int posicion,
