@@ -24,7 +24,6 @@
         <activity android:name=".TelefonoActivity" />
         <activity android:name=".JuegosActivity" />
         <activity android:name=".ElectroActivity" />
-        <activity android:name=".MusicaActivity" />
         <activity android:name=".Wish_List" />
         <activity android:name=".AboutActivity"></activity>
     </application>
