@@ -13,9 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by Luis Fernando on 19/03/2017.
- */
 
 public class Product_Activity extends AppCompatActivity {
 
@@ -27,7 +24,7 @@ public class Product_Activity extends AppCompatActivity {
     private BaseDatosWish baseDatos;
     private SQLiteDatabase db;
     public static final int VERSION = 1;
-    Context context;
+    private Context context;
     private String descpripcion;
     private String preciot;
     private int ap;

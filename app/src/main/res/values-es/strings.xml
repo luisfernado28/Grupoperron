@@ -10,7 +10,7 @@
     <string name="password">Contraseña</string>
     <string name="cleanBtn">Limpiar</string>
     <string name="sendBtn">Enviar</string>
-    <string name="sign_In">Registrarse</string>
+    <string name="sign_Up">Registrarse</string>
     <string name="name">Nombre</string>
     <string name="password_Again">Repetir Contraseña</string>
     <string name="E_Mail">Correo Electronico</string>

@@ -10,7 +10,7 @@
     <string name="password">Password</string>
     <string name="cleanBtn">Clean</string>
     <string name="sendBtn">Send</string>
-    <string name="sign_In">Sign In</string>
+    <string name="sign_Up">Sign Up</string>
     <string name="name">Name</string>
     <string name="password_Again">Password Again</string>
     <string name="E_Mail">E-Mail</string>

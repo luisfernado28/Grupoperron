@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:background="#9490A5"
+    android:background="#FFFFFF"
     android:layout_gravity="center_vertical|center_horizontal|center">
 
 <LinearLayout
@@ -18,21 +18,26 @@
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true">
     <ImageView
+        android:layout_marginTop="10dp"
         android:id="@+id/foto_decs"
         android:layout_width="248dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.34"
         android:layout_gravity="center"
+        android:background="@drawable/fondo_productos"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:layout_marginEnd="10dp"
         />
 
     <TextView
         android:id="@+id/descrip"
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.12"
         android:text="TextView"
         android:textSize="30dp"
-        android:layout_marginRight="100dp"
         android:gravity="top|center_horizontal" />
 
     <TextView
@@ -41,18 +46,20 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.12"
         android:text="TextView"
+        android:textColor="#ff0000"
         android:textSize="20dp"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:gravity="center" />
-    <!--TODO añadir todos los strings-->
+
     <Button
-        android:text="Ad"
+        android:text="@string/wish_List"
         android:layout_width="117dp"
         android:layout_height="68dp"
         android:id="@+id/btnadd"
         android:gravity="center"
         android:layout_gravity="bottom|center"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"/>
 </LinearLayout>
 </RelativeLayout>
