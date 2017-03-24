@@ -56,7 +56,7 @@ public class Wish_List extends AppCompatActivity {
 
                         prey = prey + c;
                     }
-                    if(c=='.'){
+                    if((c=='.')||(c==',')){
                         break;
                     }
                 }
