@@ -18,7 +18,8 @@
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true">
     <ImageView
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
+
         android:id="@+id/foto_decs"
         android:layout_width="248dp"
         android:layout_height="wrap_content"
@@ -33,33 +34,40 @@
     <TextView
         android:id="@+id/descrip"
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="80dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.12"
         android:text="TextView"
         android:textSize="30dp"
         android:gravity="top|center_horizontal" />
-
-    <TextView
-        android:id="@+id/precio"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.12"
-        android:text="TextView"
-        android:textColor="#ff0000"
-        android:textSize="20dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:gravity="center" />
+        android:layout_height="0dp"
+        android:layout_weight="0.3">
 
-    <Button
-        android:text="@string/wish_List"
-        android:layout_width="117dp"
-        android:layout_height="68dp"
-        android:id="@+id/btnadd"
-        android:gravity="center"
-        android:layout_gravity="bottom|center"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="20dp"/>
+        <TextView
+            android:id="@+id/precio"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="#ff0000"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btnadd"
+            android:layout_width="117dp"
+            android:layout_height="68dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="@string/wish_List" />
+    </LinearLayout>
+
 </LinearLayout>
 </RelativeLayout>

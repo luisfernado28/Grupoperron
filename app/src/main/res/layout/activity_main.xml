@@ -29,6 +29,8 @@
 
     <TextView
         android:text="@string/user"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lblUsuario"
@@ -46,6 +48,8 @@
 
     <TextView
         android:text="@string/password"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lblPassword"
@@ -100,6 +104,7 @@
 
     <TextView
         android:text="About"
+        android:textColor="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtAbout"

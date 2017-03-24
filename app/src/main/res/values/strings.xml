@@ -17,4 +17,5 @@
     <string name="submitBtn">Submit</string>
     <string name="wish_List">Wish List</string>
     <string name="searchTxt">Search</string>
+    <string name="user_or_password_incorrect">User or Password Incorrect.</string>
 </resources>

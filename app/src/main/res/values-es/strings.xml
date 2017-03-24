@@ -17,4 +17,5 @@
     <string name="submitBtn">Enviar</string>
     <string name="wish_List">Lista de Deseos</string>
     <string name="searchTxt">Buscar</string>
+    <string name="user_or_password_incorrect">Usuario o contraseña incorrectos.</string>
 </resources>
